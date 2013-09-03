@@ -1,0 +1,158 @@
+﻿<!-- start: Header -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".sidebar-nav.nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>		
+                    <div class="row">
+                        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12" href="index.html"><span>SimpliQ</span></a>
+                    </div>		
+                    <!-- start: Header Menu -->
+                    <div class="nav-no-collapse header-nav">
+                        <ul class="nav navbar-nav pull-right">
+						
+                            <!-- start: User Dropdown -->
+                            <li class="dropdown" ng-controller="LoginController">
+                                <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <div class="avatar"><img src="img/avatar.jpg" alt="Avatar"></div>
+                                    <div class="user">
+                                        <span class="hello">Welcome!</span>
+                                        <span class="name" ng-bind="user.fullName"></span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-menu-title">
+									
+                                    </li>
+                                    <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+                                    <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                                    <li><a href="#"><i class="icon-envelope"></i> Messages</a></li>
+                                    <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                            <!-- end: User Dropdown -->
+                        </ul>
+                    </div>
+                    <!-- end: Header Menu -->
+				
+                </div>
+            </div>
+        </div>
+        <!-- end: Header -->
+	
+        <div class="container">
+            <div class="row">
+				
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="col-lg-2 col-sm-1">
+				
+                    <input type="text" class="search hidden-sm" placeholder="..." />
+				
+                    <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-sm"> Dashboard</span></a></li>	
+                            <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-sm"> UI Features</span></a></li>
+                            <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-sm"> Widgets</span></a></li>
+                            <li>
+                                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-sm"> Example Pages</span> <span class="label">3</span></a>
+                                <ul>
+                                    <li><a class="submenu" href="infrastructure.html"><i class="icon-hdd"></i><span class="hidden-sm"> Infrastructure</span></a></li>
+                                    <li><a class="submenu" href="messages.html"><i class="icon-envelope"></i><span class="hidden-sm"> Messages</span></a></li>
+                                    <li><a class="submenu" href="tasks.html"><i class="icon-tasks"></i><span class="hidden-sm"> Tasks</span></a></li>
+                                </ul>	
+                            </li>
+                            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-sm"> Forms</span></a></li>
+                            <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-sm"> Charts</span></a></li>
+                            <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-sm"> Typography</span></a></li>
+                            <li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-sm"> Gallery</span></a></li>
+                            <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-sm"> Tables</span></a></li>
+                            <li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-sm"> Calendar</span></a></li>
+                            <li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-sm"> File Manager</span></a></li>
+                            <li><a href="icon.html"><i class="icon-star"></i><span class="hidden-sm"> Icons</span></a></li>
+                            <li><a href="login.html"><i class="icon-lock"></i><span class="hidden-sm"> Login Page</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+						
+                <!-- start: Content -->
+                <div id="content" class="col-lg-10 col-sm-11">
+			
+						
+                    <div class="row">
+				
+                        <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="smallstat box">
+                                <div class="boxchart-overlay blue">
+                                    <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
+                                </div>	
+                                <span class="title">Clients</span>
+                                <span class="value">4 589</span>
+                            </div>
+                        </div><!--/col-->
+				
+                        <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="smallstat box">
+                                <div class="boxchart-overlay red">
+                                    <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
+                                </div>	
+                                <span class="title">Transactions</span>
+                                <span class="value">789</span>
+                            </div>
+                        </div><!--/col-->
+				
+                        <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="smallstat box">
+                                <i class="icon-download-alt green"></i>
+                                <span class="title">Income</span>
+                                <span class="value">$1 999,99</span>
+                            </div>
+                        </div><!--/col-->
+				
+                        <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="smallstat box">
+                                <i class="icon-money yellow"></i>
+                                <span class="title">Account</span>
+                                <span class="value">$19 999,99</span>
+                            </div>
+                        </div><!--/col-->
+			
+                    </div><!--/row-->
+
+       
+					
+                </div>
+                <!-- end: Content -->
+				
+            </div><!--/row-->		
+		
+        </div><!--/container-->
+	
+		
+        <div class="modal hide fade" id="myModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here settings can be configured...</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+        </div>
+	
+        <div class="clearfix"></div>
+	
+        <footer>
+            <p>
+                <span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com" alt="Bootstrap Themes">creativeLabs</a></span>
+                <span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co" alt="Bootstrap Admin Templates">SimpliQ</a></span>
+            </p>
+
+        </footer>
