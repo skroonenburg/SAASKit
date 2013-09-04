@@ -24,7 +24,7 @@ namespace SAASKit.Web
             bundles.IgnoreList.Clear();
             AddDefaultIgnorePatterns(bundles.IgnoreList);
 
-            bundles.Add(new ScriptBundle("~/bundles/theme").Include(
+            /*bundles.Add(new ScriptBundle("~/bundles/theme").Include(
                 		"~/js/jquery-{version}.min.js",
                         "~/js/jquery-migrate-{version}.min.js",
                         "~/js/jquery-ui-{version}.custom.min.js",
@@ -69,7 +69,7 @@ namespace SAASKit.Web
                 	    "~/css/bootstrap.min.css",
 	                    "~/css/style.min.css",
 	                    "~/css/retina.min.css"
-                ));
+                ));*/
         }
     }
 }

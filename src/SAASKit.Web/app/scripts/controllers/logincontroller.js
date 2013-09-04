@@ -1,16 +1,24 @@
-﻿function LoginController($scope, AuthenticationService, $location) {
-    $scope.username = '';
-    $scope.password = '';
-    $scope.isError = false;
+﻿'use strict';
 
-    $scope.attemptLogin = function() {
+define(['controllers/controllers', 'services/authenticationservice'],
+  function (controllers) {
+      
+      controllers.controller('LoginController', ['$scope', 'AuthenticationService', '$location',
+        function ($scope, AuthenticationService, $location) {
+            
+            $scope.username = '';
+            $scope.password = '';
+            $scope.isError = false;
 
-        if (AuthenticationService.attemptLogin($scope.username, $scope.password)) {
-            // login succeeded
-            $location.path('dashboard');
-        } else {
-            // login failed
-            $scope.isError = true;
-        }
-    };
-}
+            $scope.attemptLogin = function() {
+
+                if (AuthenticationService.attemptLogin($scope.username, $scope.password)) {
+                    // login succeeded
+                    $location.path('dashboard');
+                } else {
+                    // login failed
+                    $scope.isError = true;
+                }
+            };
+        }]);
+  });

@@ -1,29 +1,34 @@
-﻿
-saasModule.factory('AuthenticationService', function ($location) {
-    var authentication = {
-        isLoggedIn: false
-    };
+﻿'use strict';
 
-    authentication.getUserDetails = function() {
-        return {
-            firstName: "Sam",
-            lastName: "Kroonenburg"
-        };
-    };
+define(['services/services'],
+  function (services) {
+      services.factory('AuthenticationService', function ($location) {
+          var authentication = {
+              isLoggedIn: false
+          };
 
-    authentication.ensureAuthenticated = function() {
-        if (!authentication.isLoggedIn) {
-            $location.path('login');
-        }
-    };
-    
-    authentication.attemptLogin = function (username, password) {
-        if (username == 'sam' && password == 'password') {
-            authentication.isLoggedIn = true;
-        }
-        
-        return authentication.isLoggedIn;
-    };
+          authentication.getUserDetails = function () {
+              return {
+                  firstName: "Sam",
+                  lastName: "Kroonenburg"
+              };
+          };
 
-    return authentication;
-});
+          authentication.ensureAuthenticated = function () {
+              if (!authentication.isLoggedIn) {
+                  $location.path('login');
+              }
+          };
+
+          authentication.attemptLogin = function (username, password) {
+              if (username == 'sam' && password == 'password') {
+                  authentication.isLoggedIn = true;
+              }
+
+              return authentication.isLoggedIn;
+          };
+
+          return authentication;
+      });
+  });
+

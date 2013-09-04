@@ -1,16 +1,20 @@
-﻿function LoginController($scope, AuthenticationService, $location) {
-    $scope.username = '';
-    $scope.password = '';
-    $scope.isError = false;
+﻿'use strict';
 
-    $scope.attemptLogin = function() {
+define(['controllers/controllers', 'services/authenticationservice'],
+  function (controllers) {
 
-        if (AuthenticationService.attemptLogin($scope.username, $scope.password)) {
-            // login succeeded
-            $location.path('dashboard');
-        } else {
-            // login failed
-            $scope.isError = true;
-        }
-    };
-}
+      controllers.controller('HeaderController', ['$scope', 'AuthenticationService',
+
+        function ($scope, AuthenticationService) {
+
+            $scope.user = AuthenticationService.getUserDetails();
+
+            function updateFullName() {
+                $scope.user.fullName = $scope.user.firstName + " " + $scope.user.lastName;
+            }
+
+            $scope.$watch('user.firstName', updateFullName);
+            $scope.$watch('user.lastName', updateFullName);
+
+        }]);
+  });

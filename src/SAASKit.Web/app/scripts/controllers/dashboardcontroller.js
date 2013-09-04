@@ -1,11 +1,20 @@
-﻿function DashboardController($scope, AuthenticationService) {
-    AuthenticationService.ensureAuthenticated();
-    $scope.user = AuthenticationService.getUserDetails();
+﻿'use strict';
 
-    function updateFullName() {
-        $scope.user.fullName = $scope.user.firstName + " " + $scope.user.lastName;
-    }
+define(['controllers/controllers', 'services/authenticationservice'],
+  function (controllers) {
+      
+      controllers.controller('DashboardController', ['$scope', 'AuthenticationService',
+          
+        function ($scope, AuthenticationService) {
+            
+            $scope.user = AuthenticationService.getUserDetails();
 
-    $scope.$watch('user.firstName', updateFullName);
-    $scope.$watch('user.lastName', updateFullName);
-}
+            function updateFullName() {
+                $scope.user.fullName = $scope.user.firstName + " " + $scope.user.lastName;
+            }
+
+            $scope.$watch('user.firstName', updateFullName);
+            $scope.$watch('user.lastName', updateFullName);
+            
+        }]);
+  });
