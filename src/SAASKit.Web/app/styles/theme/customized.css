@@ -1,0 +1,77 @@
+﻿#sidebar-left {
+    display: none;
+}
+
+#mainheader {
+    display: none;
+}
+
+.visible {
+    display: block !important;
+}
+
+.animate-enter {
+    -webkit-filter: blur(6px);
+
+    -webkit-transition: 0.3s ease-in all; /* Chrome */
+	transition: 0.3s ease-in all;
+    transition-delay: 0.3s;
+}
+ 
+.animate-enter.animate-enter-active {
+    -webkit-filter: blur(0px);
+}
+
+.animate-leave {
+    -webkit-filter: blur(0px);
+
+    -webkit-transition: 0.3s ease-out all; /* Chrome */
+	transition: 0.3s ease-out all;
+}
+
+.animate-leave.animate-leave-active {
+    -webkit-filter: blur(6px);
+}
+
+.input-updating {
+    -webkit-filter: blur(2px);
+    opacity: 0.7;
+}
+
+
+.icon-spinner {
+    background-image: url(../../images/theme/spinner.gif);
+    width: 16px;
+    height: 16px;
+}
+
+#content {
+    min-height: 700px;
+}
+
+.quick-button {
+    opacity: 1;
+
+    -webkit-transition: 0.3s ease-out opacity; /* Chrome */
+	transition: 0.3s ease-out opacity;
+	
+}
+.quick-button.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    -webkit-transition: 0.3s ease-out opacity; /* Chrome */
+	transition: 0.3s ease-out opacity;
+}
+
+.fade-enter {
+	-webkit-transition: 0.3s ease-in all; /* Chrome */
+	transition: 0.3s ease-in all;
+    opacity: 0;
+}
+ 
+.fade-enter.fade-enter-active {
+    	-webkit-transition: 0.3s ease-in all; /* Chrome */
+	transition: 0.3s ease-in all;
+
+    opacity: 1;
+}

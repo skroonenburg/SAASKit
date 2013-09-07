@@ -132,11 +132,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\images\theme\spinner.gif" />
     <Content Include="app\scripts\app.js" />
+    <Content Include="app\scripts\controllers\operationscontroller.js" />
+    <Content Include="app\scripts\controllers\editusercontroller.js" />
     <Content Include="app\scripts\controllers\userlistcontroller.js" />
     <Content Include="app\scripts\services\userservice.js" />
     <Content Include="app\scripts\ui.js" />
-    <Content Include="app\scripts\directives\butterbar.js" />
+    <Content Include="app\scripts\directives\loadicon.js" />
     <Content Include="app\scripts\directives\directives.js" />
     <Content Include="app\scripts\main.js" />
     <Content Include="app\scripts\services\services.js" />
@@ -148,6 +151,7 @@
     <Content Include="app\styles\theme\chosen-sprite.png" />
     <Content Include="app\styles\theme\chosen.css" />
     <Content Include="app\styles\theme\chosen.min.css" />
+    <Content Include="app\styles\theme\customized.css" />
     <Content Include="app\styles\theme\elfinder.min.css" />
     <Content Include="app\styles\theme\elfinder.theme.css" />
     <Content Include="app\styles\theme\font-awesome-ie7.css" />
@@ -177,6 +181,7 @@
     <Content Include="app\styles\theme\uploadify.css" />
     <Content Include="app\scripts\vendor\domReady.js" />
     <Content Include="app\scripts\vendor\require.min.js" />
+    <Content Include="app\views\edituser.html" />
     <Content Include="app\views\userlist.html" />
     <Content Include="app\views\dashboard.html" />
     <Content Include="app\styles\font\fontawesome-webfont.svg" />

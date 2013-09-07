@@ -13,5 +13,27 @@ namespace SAASKit.Api.Models
         public string emailAddress { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public bool isActive { get; set; }
+        public bool isLocked { get; set; }
+
+        public void Deactivate()
+        {
+            isActive = false;
+        }
+
+        public void Activate()
+        {
+            isActive = true;
+        }
+
+        public void Lock()
+        {
+            isLocked = true;
+        }
+
+        public void Unlock()
+        {
+            isLocked = false;
+        }
     }
 }

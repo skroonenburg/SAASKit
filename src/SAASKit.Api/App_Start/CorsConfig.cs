@@ -7,7 +7,7 @@ using WebActivatorEx;
 namespace SAASKit.Api.App_Start {
     public static class CorsConfig {
         public static void PreStart() {
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new RedRocket.WebApi.Cors.CorsHandler());
+          //  GlobalConfiguration.Configuration.MessageHandlers.Add(new RedRocket.WebApi.Cors.CorsHandler());
         }
     }
 }

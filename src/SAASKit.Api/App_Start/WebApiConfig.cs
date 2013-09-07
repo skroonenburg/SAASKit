@@ -10,6 +10,12 @@ namespace SAASKit.Api
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
+                name: "Commands",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { controller = "Users"}
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

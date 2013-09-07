@@ -3,7 +3,7 @@
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>SimpliQ - Flat & Responsive Bootstrap Admin Template</title>
+	<title ng-bind="'SAASKit - ' + title"></title>
 	<meta name="description" content="SimpliQ - Flat & Responsive Bootstrap Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="SimpliQ, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -17,6 +17,7 @@
 	<link href="styles/theme/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/theme/style.min.css" rel="stylesheet">
 	<link href="styles/theme/retina.min.css" rel="stylesheet">
+    <link href="styles/theme/customized.css" rel="stylesheet">
 	<!-- end: CSS -->
 	
 
@@ -42,9 +43,141 @@
 
     <body>
         <!--<div butterbar>Loading...</div>-->
+        
+        
+				
+        <!-- start: Header -->
+        <div id="mainheader" class="navbar" ng-class="{visible: showHeader}" >
+            <div class="navbar-inner" ng-controller="HeaderController">
+                <div class="container">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".sidebar-nav.nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>		
+                    <div class="row">
+                        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12" href="index.html"><span>SimpliQ</span></a>
+                    </div>		
+                    <!-- start: Header Menu -->
+                    <div class="nav-no-collapse header-nav">
+                        <ul class="nav navbar-nav pull-right" >
+						
+                            <li class="dropdown hidden-xs" ng-class="{'open': showList }"  ng-controller="OperationsController">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <loadicon is-updating="operations.length > 0" icon="'icon-list'"></loadicon>
+                                    <span class="label label-success" ng-bind="operations.length" ng-show="operations.length"></span>
+                                </a>
+                                <ul class="dropdown-menu notifications">
+                                    <li class="dropdown-menu-title">
+                                        <span>{{operations.length}} operations are in progress</span>
+                                    </li>	
+                                    <li ng-repeat="operation in operations">
+                                        <a href="#">
+                                            <span class="icon blue"><loadicon is-updating="operation.isInProgress" icon="operation.icon"></loadicon></span>
+                                            <span class="message" ng-bind="operation.description"></span>
+                                            <span class="time">1 min</span> 
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
 
-        <div ng-view></div>
+                            <!-- start: User Dropdown -->
+                            <li class="dropdown">
+                                <a class="btn account dropdown-toggle" data-toggle="dropdown" href="">
+                                    <div class="avatar"><img src="images/theme/avatar.jpg" alt="Avatar"></div>
+                                    <div class="user">
+                                        <span class="hello">Welcome!</span>
+                                        <span class="name" ng-bind="user.fullName"></span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-menu-title">
+									
+                                    </li>
+                                    <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+                                    <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                                    <li><a href="#"><i class="icon-envelope"></i> Messages</a></li>
+                                    <li><a href="#/login"><i class="icon-off"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                            <!-- end: User Dropdown -->
+                        </ul>
+                    </div>
+                    <!-- end: Header Menu -->
+				
+                </div>
+            </div>
+        </div>
+        <!-- end: Header -->
 	
+        <div id="mainnav" class="container" >
+            <div class="row">
+				
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="col-lg-2 col-sm-1" ng-class="{visible: showNavBar}">
+				
+                    <input type="text" class="search hidden-sm" placeholder="..." />
+				
+                    <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="#/dashboard"><i class="icon-bar-chart"></i><span class="hidden-sm"> Dashboard</span></a></li>	
+                            <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-sm"> UI Features</span></a></li>
+                            <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-sm"> Widgets</span></a></li>
+                            <li>
+                                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-sm"> Example Pages</span> <span class="label">3</span></a>
+                                <ul>
+                                    <li><a class="submenu" href="infrastructure.html"><i class="icon-hdd"></i><span class="hidden-sm"> Infrastructure</span></a></li>
+                                    <li><a class="submenu" href="messages.html"><i class="icon-envelope"></i><span class="hidden-sm"> Messages</span></a></li>
+                                    <li><a class="submenu" href="tasks.html"><i class="icon-tasks"></i><span class="hidden-sm"> Tasks</span></a></li>
+                                </ul>	
+                            </li>
+                            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-sm"> Forms</span></a></li>
+                            <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-sm"> Charts</span></a></li>
+                            <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-sm"> Typography</span></a></li>
+                            <li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-sm"> Gallery</span></a></li>
+                            <li><a href="#/users"><i class="icon-align-justify"></i><span class="hidden-sm"> Users</span></a></li>
+                            <li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-sm"> Calendar</span></a></li>
+                            <li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-sm"> File Manager</span></a></li>
+                            <li><a href="icon.html"><i class="icon-star"></i><span class="hidden-sm"> Icons</span></a></li>
+                            <li><a href="login.html"><i class="icon-lock"></i><span class="hidden-sm"> Login Page</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+                
+                 
+		        <!-- start: Content -->
+	            <div ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></div>		
+                <!-- end: Content -->
+                
+            </div>
+        </div>
+
+        <div class="modal hide fade" id="myModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here settings can be configured...</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+        </div>
+	
+        <div class="clearfix"></div>
+	
+        <footer>
+            <p>
+                <span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com" alt="Bootstrap Themes">creativeLabs</a></span>
+                <span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co" alt="Bootstrap Admin Templates">SimpliQ</a></span>
+            </p>
+
+        </footer>
         <!-- start: JavaScript-->
         <script data-main="scripts/main" src="scripts/vendor/require.min.js"></script>
         
