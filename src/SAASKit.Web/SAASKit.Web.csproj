@@ -137,6 +137,7 @@
     <Content Include="app\scripts\controllers\operationscontroller.js" />
     <Content Include="app\scripts\controllers\editusercontroller.js" />
     <Content Include="app\scripts\controllers\userlistcontroller.js" />
+    <Content Include="app\scripts\services\urlservice.js" />
     <Content Include="app\scripts\services\userservice.js" />
     <Content Include="app\scripts\ui.js" />
     <Content Include="app\scripts\directives\loadicon.js" />

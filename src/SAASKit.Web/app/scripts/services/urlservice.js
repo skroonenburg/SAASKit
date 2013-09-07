@@ -8,4 +8,3 @@ define(['services/services'],
           };
       }]);
   });
-
