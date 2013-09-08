@@ -4,7 +4,7 @@ define(['controllers/controllers'],
   function (controllers) {
 
       var operationsMap = [
-          { event: 'userProfileUpdate', icon: 'icon-check', descriptionInProgress: 'Updating User Profile', descriptionComplete: 'Updated User Profile' },
+          { event: 'userProfileUpdate', icon: 'icon-check', descriptionInProgress: 'Updating User Profile' },
           { event: 'userProfileLock', icon: 'icon-lock', descriptionInProgress: 'Locking User Profile' },
           { event: 'userProfileUnlock', icon: 'icon-unlock', descriptionInProgress: 'Unlocking User Profile' },
           { event: 'userProfileActivate', icon: 'icon-unlock', descriptionInProgress: 'Activating User Profile' },

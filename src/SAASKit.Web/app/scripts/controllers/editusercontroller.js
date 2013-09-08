@@ -13,7 +13,7 @@ define(['controllers/controllers', 'services/userservice'],
                     fullName = $scope.user.firstName + " " + $scope.user.lastName;
                 }
 
-                $scope.user.fullName = fullName;
+                $scope.fullName = fullName;
             }
             
             function completeOperation(operationId, func) {
@@ -33,41 +33,24 @@ define(['controllers/controllers', 'services/userservice'],
                 };
             }
             
-            $scope.userId = $routeParams.userId;
-            $scope.isChanged = false;
-            $scope.isUpdating = false;
-            $scope.changeCount = 0;
+            function updateComplete(data) {
+                loadUserToUI(data ? data : $scope.user);
+            }
+
+            function updateError() {
+                $scope.isUpdating = false;
+            }
             
             function loadUserToUI(updatedUser) {
                 $scope.lastSavedUser = $.extend(true, {}, updatedUser);
                 $scope.user = updatedUser;
                 $scope.isChanged = false;
                 $scope.isUpdating = false;
-                
+
                 $scope.$watch('user.firstName', updateFullName);
                 $scope.$watch('user.lastName', updateFullName);
                 $scope.$watch('user', updateChanged, true);
             }
-            
-            $scope.isUpdating = true;
-            
-            function updateComplete(data) {
-                loadUserToUI(data ? data : $scope.user);
-            }
-            
-            function updateError() {
-                $scope.isUpdating = false;
-            }
-            
-            $scope.user = UserService.getUserResource().get({ id: $scope.userId }, updateComplete);
-
-            $scope.lock = startsOperation('userProfileLock', function () { return UserService.lock($scope.userId); });
-            $scope.unlock = startsOperation('userProfileUnlock', function () { return UserService.unlock($scope.userId); });
-            $scope.activate = startsOperation('userProfileActivate', function () { return UserService.activate($scope.userId); });
-            $scope.deactivate = startsOperation('userProfileDeactivate', function () { return UserService.deactivate($scope.userId); });
-            
-            
-            
 
             function updateChanged() {
                 var count = 0;
@@ -78,20 +61,33 @@ define(['controllers/controllers', 'services/userservice'],
                         }
                     }
                 }
-                
+
                 $scope.isChanged = count > 0;
                 $scope.changeCount = count;
             }
 
-            
-
-            $scope.update = function () {
+            /*$scope.update = function () {
                 $scope.isUpdating = true;
                 var operationId = new Date();
                 $rootScope.$broadcast('startOperation', { id: operationId, entityId: '/user/' + $scope.userId, event: 'userProfileUpdate' });
-                
+
                 UserService.getUserResource().save($scope.user, completeOperation(operationId, updateComplete), completeOperation(operationId, updateError));
-            };
+            };*/
+            
+            // properties
+            $scope.userId = $routeParams.userId;
+            $scope.isChanged = false;
+            $scope.isUpdating = false;
+            $scope.changeCount = 0;
+            $scope.isUpdating = true;
+            $scope.user = UserService.getUserResource().get({ id: $scope.userId }, updateComplete);
+            
+            // behaviours
+            $scope.lock = startsOperation('userProfileLock', function () { return UserService.lock($scope.userId); });
+            $scope.unlock = startsOperation('userProfileUnlock', function () { return UserService.unlock($scope.userId); });
+            $scope.activate = startsOperation('userProfileActivate', function () { return UserService.activate($scope.userId); });
+            $scope.deactivate = startsOperation('userProfileDeactivate', function () { return UserService.deactivate($scope.userId); });
+            $scope.update = startsOperation('userProfileUpdate', function () { return UserService.save($scope.userId, $scope.user); });
         }]);
   });
 

@@ -7,6 +7,9 @@ define(['services/services', 'scripts/services/urlservice.js'],
               getUserResource: function () {
                   return $resource(UrlService.baseUrl + '/api/users/:id', { id: '@id' }, { save: { method: 'PUT' }});
               },
+              save: function(id, data) {
+                  return $http.post(UrlService.baseUrl + '/api/users/updateprofile/' + id, data);
+              },
               deactivate: function(id) {
                   return $http.post(UrlService.baseUrl + '/api/users/deactivate/' + id, {});
               },

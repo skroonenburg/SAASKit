@@ -40,8 +40,10 @@ namespace SAASKit.Api.Controllers
             users.Add(value);
         }
 
-        // PUT api/users/5
-        public void PutExistingUser(int id, [FromBody]User value)
+        // POST api/users/5/updateprofile
+        [HttpPost]
+        [ActionName("UpdateProfile")]
+        public void UpdateProfile(int id, [FromBody]User value)
         {
             Thread.Sleep(UiPauseTime);
             Delete(id);
