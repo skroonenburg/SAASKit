@@ -65,14 +65,6 @@ define(['controllers/controllers', 'services/userservice'],
                 $scope.isChanged = count > 0;
                 $scope.changeCount = count;
             }
-
-            /*$scope.update = function () {
-                $scope.isUpdating = true;
-                var operationId = new Date();
-                $rootScope.$broadcast('startOperation', { id: operationId, entityId: '/user/' + $scope.userId, event: 'userProfileUpdate' });
-
-                UserService.getUserResource().save($scope.user, completeOperation(operationId, updateComplete), completeOperation(operationId, updateError));
-            };*/
             
             // properties
             $scope.userId = $routeParams.userId;

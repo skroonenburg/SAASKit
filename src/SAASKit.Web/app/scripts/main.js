@@ -24,22 +24,59 @@ require([
   'angularResource',
   'app',
   'domReady',
-  
+  'sitemap',
   'controllers/dashboardcontroller',
   'controllers/logincontroller',
   'controllers/headercontroller',
   'controllers/userlistcontroller',
   'controllers/editusercontroller',
   'controllers/operationscontroller',
+  'controllers/navbarcontroller',
   'directives/loadicon',
+  'directives/dropmenu',
   'ui'
 ],
-  function (angular, angres, app, domReady) {
+  function (angular, angres, app, domReady, sitemap) {
       'use strict';
       
-    app.config(['$routeProvider',
-      function($routeProvider) {
-          $routeProvider
+      function createRoutes($routeProvider, items) {
+          for (var key in items) {
+              var item = items[key];
+
+              if (item.items) {
+                  createRoutes($routeProvider, item.items);
+              }
+              
+              if (item.controller && item.templateUrl) {
+                  $routeProvider.when(item.link,
+                      {
+                          title: 'Dashboard',
+                          showNavBar: item.showNavBar,
+                          showHeader: item.showHeader,
+                          controller: item.controller,
+                          templateUrl: item.templateUrl
+                      });
+              }
+          }
+      };
+      
+      app.config(['$routeProvider',
+      
+          function($routeProvider) {
+
+              createRoutes($routeProvider, sitemap.items);
+              
+              $routeProvider.otherwise(
+                  {
+                      title: 'Login',
+                      showNavBar: false,
+                      showHeader: false,
+                      controller: 'LoginController',
+                      templateUrl: '/app/views/login.html'
+                  });
+          }
+
+/*$routeProvider
                     .when('/dashboard',
                             {
                                 title: 'Dashboard',
@@ -79,8 +116,7 @@ require([
                             showHeader: false,
                             controller: 'LoginController',
                             templateUrl: '/app/views/login.html'
-                        });
-      }
+                        });*/
     ]);
       
     app.config(['$httpProvider', function ($httpProvider) {
