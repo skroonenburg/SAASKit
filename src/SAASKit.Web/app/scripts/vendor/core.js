@@ -109,14 +109,14 @@ define(['vendor/modernizr',
 	    });
 
 	    /* ---------- Submenu  ---------- */
-/*
-	    $('.dropmenu').click(function(e){
+
+	    $('body').on('click', '.dropmenu', function(e){
 
 		    e.preventDefault();
 
 		    $(this).parent().find('ul').slideToggle();
 
-	    });*/
+	    });
 
     });
 

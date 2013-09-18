@@ -72,3 +72,6 @@
 
     opacity: 1;
 }
+.block {
+    display: block !important;
+}

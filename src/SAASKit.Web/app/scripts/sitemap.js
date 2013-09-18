@@ -2,7 +2,7 @@
 
 define([],
   function () {
-          return {
+      return {
               items:
               [
                   {
@@ -34,6 +34,7 @@ define([],
                                       title: 'Edit User',
                                       showNavBar: true,
                                       showHeader: true,
+                                      visible: false,
                                       controller: 'EditUserController',
                                       templateUrl: '/app/views/edituser.html'
                                   }

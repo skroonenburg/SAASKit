@@ -33,7 +33,8 @@ require([
   'controllers/operationscontroller',
   'controllers/navbarcontroller',
   'directives/loadicon',
-  'directives/dropmenu',
+  //'directives/dropmenu',
+  //'directives/navbaritem',
   'ui'
 ],
   function (angular, angres, app, domReady, sitemap) {
@@ -54,14 +55,14 @@ require([
                           showNavBar: item.showNavBar,
                           showHeader: item.showHeader,
                           controller: item.controller,
-                          templateUrl: item.templateUrl
+                          templateUrl: item.templateUrl,
+                          link: item.link
                       });
               }
           }
       };
       
       app.config(['$routeProvider',
-      
           function($routeProvider) {
 
               createRoutes($routeProvider, sitemap.items);
@@ -75,48 +76,6 @@ require([
                       templateUrl: '/app/views/login.html'
                   });
           }
-
-/*$routeProvider
-                    .when('/dashboard',
-                            {
-                                title: 'Dashboard',
-                                showNavBar: true,
-                                showHeader: true,
-                                controller: 'DashboardController',
-                                templateUrl: '/app/views/dashboard.html'
-                            })
-                    .when('/users',
-                            {
-                                title: 'Users',
-                                showNavBar: true,
-                                showHeader: true,
-                                controller: 'UserListController',
-                                templateUrl: '/app/views/userlist.html'
-                            })
-                    .when('/users/:userId',
-                            {
-                                title: 'Edit User',
-                                showNavBar: true,
-                                showHeader: true,
-                                controller: 'EditUserController',
-                                templateUrl: '/app/views/edituser.html'
-                            })
-                     .when('/login',
-                            {
-                                title: 'Login',
-                                showNavBar: false,
-                                showHeader: false,
-                                controller: 'LoginController',
-                                templateUrl: '/app/views/login.html'
-                            })
-                    .otherwise(
-                        {
-                            title: 'Login',
-                            showNavBar: false,
-                            showHeader: false,
-                            controller: 'LoginController',
-                            templateUrl: '/app/views/login.html'
-                        });*/
     ]);
       
     app.config(['$httpProvider', function ($httpProvider) {
@@ -129,7 +88,8 @@ require([
        }]);
       
     app.run(function ($rootScope) {
-        $rootScope.$on('$routeChangeSuccess', function(ev, data) {
+        $rootScope.$on('$routeChangeSuccess', function (ev, data) {
+            
             if (data.$$route && data.$$route.title) {
                 $rootScope.title = data.$$route.title;
                 $rootScope.showNavBar = data.$$route.showNavBar;

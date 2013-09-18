@@ -1,4 +1,4 @@
-﻿'use strict';
+﻿/*'use strict';
 
 define(['directives/directives'], function (directives) {
     directives.directive('dropmenu', ['$rootScope', function($rootScope) {
@@ -15,4 +15,4 @@ define(['directives/directives'], function (directives) {
             }
         };
     }]);
-});
+});*/
