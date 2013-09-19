@@ -1,0 +1,71 @@
+﻿@media only screen and (max-width: 767px) {
+    .header-nav {
+        display: none;
+    }
+    #sidebar-left {
+        padding: 0 !important;
+    }
+    .nav {
+         padding: 10px !important;
+    }
+    .navbar-inner {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .navbar-toggle {
+        right: 0;
+        top: -4px;
+    }
+}
+
+
+
+ul.list {
+  height: 516px;
+  overflow-y: scroll;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.list li {
+  position: relative;
+  padding: 12px 10px 15px 60px;
+  border-bottom: 1px solid #e4e6eb;
+}
+ul.list li img.avatar {
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 40px;
+  margin-right: 10px;
+}
+ul.list li .name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+ul.list li .time {
+  font-weight: bold;
+  right: 10px;
+  position: absolute;
+  color: #c7cbd5;
+  font-size: 11px;
+}
+ul.list li .action {
+  font-weight: bold;
+  right: 10px;
+  position: absolute;
+  font-size: 11px; 
+}
+ul.list li .message {
+  
+  font-size: 12px;
+}
+
+
+a.navbar-brand span {
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+}

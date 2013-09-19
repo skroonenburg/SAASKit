@@ -15,6 +15,15 @@ define([],
                       showHeader: true
                   },
                   {
+                      title: 'Groups',
+                      link: '/groups',
+                      controller: 'GroupListController',
+                      templateUrl: '/app/views/grouplist.html',
+                      icon: 'icon-group',
+                      showNavBar: true,
+                      showHeader: true
+                  },
+                  {
                       title: 'Administration',
                       icon: 'icon-cog',
                       showNavBar: true,

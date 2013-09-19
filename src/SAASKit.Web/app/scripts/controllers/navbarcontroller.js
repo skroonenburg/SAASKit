@@ -28,7 +28,7 @@ define(['controllers/controllers', 'sitemap'],
             $scope.isParentOfActive = function (node) {
                 var containsActiveNode = false;
                 ForEachNode(node.items, function (childNode) {
-                    if (childNode.active) {
+                    if (childNode && childNode.active) {
                         containsActiveNode = true;
                     }
                 });

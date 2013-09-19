@@ -29,6 +29,7 @@ require([
   'controllers/logincontroller',
   'controllers/headercontroller',
   'controllers/userlistcontroller',
+  'controllers/grouplistcontroller',
   'controllers/editusercontroller',
   'controllers/operationscontroller',
   'controllers/navbarcontroller',

@@ -140,11 +140,13 @@
   <ItemGroup>
     <Content Include="app\images\theme\spinner.gif" />
     <Content Include="app\scripts\app.js" />
+    <Content Include="app\scripts\controllers\grouplistcontroller.js" />
     <Content Include="app\scripts\controllers\navbarcontroller.js" />
     <Content Include="app\scripts\controllers\operationscontroller.js" />
     <Content Include="app\scripts\controllers\editusercontroller.js" />
     <Content Include="app\scripts\controllers\userlistcontroller.js" />
     <Content Include="app\scripts\directives\dropmenu.js" />
+    <Content Include="app\scripts\services\groupservice.js" />
     <Content Include="app\scripts\sitemap.js" />
     <Content Include="app\scripts\services\urlservice.js" />
     <Content Include="app\scripts\services\userservice.js" />
@@ -153,6 +155,7 @@
     <Content Include="app\scripts\directives\directives.js" />
     <Content Include="app\scripts\main.js" />
     <Content Include="app\scripts\services\services.js" />
+    <Content Include="app\styles\theme\style-modified.css" />
     <Content Include="app\styles\theme\bootstrap-theme.css" />
     <Content Include="app\styles\theme\bootstrap-theme.min.css" />
     <Content Include="app\styles\theme\bootstrap.css" />
@@ -191,6 +194,7 @@
     <Content Include="app\styles\theme\uploadify.css" />
     <Content Include="app\scripts\vendor\domReady.js" />
     <Content Include="app\scripts\vendor\require.min.js" />
+    <Content Include="app\views\grouplist.html" />
     <Content Include="app\views\edituser.html" />
     <Content Include="app\views\userlist.html" />
     <Content Include="app\views\dashboard.html" />
