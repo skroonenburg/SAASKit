@@ -3,14 +3,16 @@
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title ng-bind="'SAASKit - ' + title"></title>
+	<title ng-bind="'locio' + title ? ' - ' + title : ''"></title>
 	<meta name="description" content="SimpliQ - Flat & Responsive Bootstrap Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="SimpliQ, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />  
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
