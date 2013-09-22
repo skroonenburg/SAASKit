@@ -3,21 +3,20 @@
 define(['controllers/controllers', 'services/LocalEntityCacheService'],
   function (controllers) {
       
-      controllers.controller('GroupListController', ['$scope', 'UserService', 'LocalEntityCacheService', '$location',
+      controllers.controller('GroupListController', ['$scope', 'UserService', 'LocalEntityCacheService', '$location', '$rootScope',
           
-        function ($scope, UserService, LocalEntityCacheService, $location) {
+        function ($scope, UserService, LocalEntityCacheService, $location, $rootScope) {
 
             var locations = ["Meeting Room #1", "Boardroom", "Meeting Room #2", "Meeting Room #6", "Cafe", "Out of Office"];
             
             $scope.refresh = function () {
                 
-                $scope.isUpdating = true;
-
+                $rootScope.isUpdating = true;
+                
                 LocalEntityCacheService.getList('user', UserService.getUsers,
                     // update data
                     function(data, isCached) {
-                        $scope.isUpdating = isCached;
-
+                        $rootScope.isUpdating = isCached;
 
                         for (var key in data) {
                             data[key].fullName = data[key].firstName + " " + data[key].lastName;

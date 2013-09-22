@@ -3,9 +3,9 @@
 define(['controllers/controllers', 'services/userservice'],
   function (controllers) {
       
-      controllers.controller('EditUserController', ['$scope', 'UserService', '$routeParams', '$rootScope',
+      controllers.controller('EditUserController', ['$scope', '$rootScope', 'UserService', '$routeParams', 
           
-        function ($scope, UserService, $routeParams, $rootScope) {
+        function ($scope, $rootScope, UserService, $routeParams) {
             
             function updateFullName() {
                 var fullName = '';
@@ -25,7 +25,7 @@ define(['controllers/controllers', 'services/userservice'],
             
             function startsOperation(event, func) {
                 return function () {
-                    $scope.isUpdating = true;
+                    $rootScope.isUpdating = true;
                     var operationId = new Date();
                     $rootScope.$broadcast('startOperation', { id: operationId, entityId: '/user/' + $scope.userId, event: event });
                     func().success(completeOperation(operationId, updateComplete))
@@ -38,14 +38,14 @@ define(['controllers/controllers', 'services/userservice'],
             }
 
             function updateError() {
-                $scope.isUpdating = false;
+                $rootScope.isUpdating = false;
             }
             
             function loadUserToUI(updatedUser) {
                 $scope.lastSavedUser = $.extend(true, {}, updatedUser);
                 $scope.user = updatedUser;
                 $scope.isChanged = false;
-                $scope.isUpdating = false;
+                $rootScope.isUpdating = false;
 
                 $scope.$watch('user.firstName', updateFullName);
                 $scope.$watch('user.lastName', updateFullName);
@@ -69,9 +69,8 @@ define(['controllers/controllers', 'services/userservice'],
             // properties
             $scope.userId = $routeParams.userId;
             $scope.isChanged = false;
-            $scope.isUpdating = false;
             $scope.changeCount = 0;
-            $scope.isUpdating = true;
+            $rootScope.isUpdating = true;
             $scope.user = UserService.getUserResource().get({ id: $scope.userId }, updateComplete);
             
             // behaviours

@@ -1,6 +1,9 @@
 ﻿#mainnav .row {
     position: relative;
 }
+#updatingStatus {
+    display: none;
+}
 @media only screen and (max-width: 767px) {
     .header-nav {
         display: none;
@@ -76,6 +79,18 @@
         -webkit-filter: blur(0px);
     }
 
+    #updatingStatus {
+        position: fixed;
+        left: 20px;
+        top: 8px;
+        z-index: 9;
+        display: block;
+    }
+
+    /* Remove all padding from mobile views */
+    #content {
+        padding: 0;
+    }
 }
 
 

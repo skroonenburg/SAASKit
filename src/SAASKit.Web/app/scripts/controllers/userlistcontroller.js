@@ -3,18 +3,18 @@
 define(['controllers/controllers', 'services/userservice'],
   function (controllers) {
       
-      controllers.controller('UserListController', ['$scope', 'UserService', 'LocalEntityCacheService',
+      controllers.controller('UserListController', ['$scope', '$rootScope', 'UserService', 'LocalEntityCacheService',
           
-        function ($scope, UserService, LocalEntityCacheService) {
+        function ($scope, $rootScope, UserService, LocalEntityCacheService) {
             
             $scope.refresh = function () {
                 
-                $scope.isUpdating = true;
+                $rootScope.isUpdating = true;
                 
                 LocalEntityCacheService.getList('user', UserService.getUsers,
                     // update data
                     function (data, isCached) {
-                        $scope.isUpdating = isCached;
+                        $rootScope.isUpdating = isCached;
 
                         for (var key in data) {
                             data[key].fullName = data[key].firstName + " " + data[key].lastName;
