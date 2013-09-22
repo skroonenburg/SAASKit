@@ -21,8 +21,8 @@
     }
     body #sidebar-left {
         position: absolute;
-        left: -300px;
-        width:300px;
+        left: -200px;
+        width:200px;
         top: 0;
         bottom: 0;
         z-index: 9;
@@ -45,8 +45,8 @@
 
     body.small-nav-expanded #content-area {
         
-        margin-left: 300px;
-        margin-right: -300px;
+        margin-left: 200px;
+        margin-right: -200px;
         -webkit-transition: all .3s ease-in;
     }
 

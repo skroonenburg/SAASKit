@@ -138,6 +138,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\images\ico\icon-ipad-retina.png" />
+    <Content Include="app\images\ico\icon-ipad.png" />
+    <Content Include="app\images\ico\icon-iphone-retina.png" />
+    <Content Include="app\images\ico\icon-iphone.png" />
     <Content Include="app\images\theme\spinner.gif" />
     <Content Include="app\scripts\app.js" />
     <Content Include="app\scripts\controllers\locio\userstatuscontroller.js" />
@@ -207,10 +211,6 @@
     <Content Include="app\styles\font\glyphicons-regular.svg" />
     <Content Include="app\styles\font\glyphiconshalflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="app\images\ico\apple-touch-icon-114-precomposed.png" />
-    <Content Include="app\images\ico\apple-touch-icon-144-precomposed.png" />
-    <Content Include="app\images\ico\apple-touch-icon-57-precomposed.png" />
-    <Content Include="app\images\ico\apple-touch-icon-72-precomposed.png" />
     <Content Include="app\images\ico\favicon.png" />
     <Content Include="app\images\theme\arrows-active.png" />
     <Content Include="app\images\theme\arrows-normal.png" />
