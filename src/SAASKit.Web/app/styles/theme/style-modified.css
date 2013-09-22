@@ -1,9 +1,43 @@
 ﻿#mainnav .row {
     position: relative;
 }
+
+
 #updatingStatus {
-    display: none;
+  color: white;
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  left: 5px;
+  padding: 8px 12px;
+  font-size: 16px;
+  text-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
 }
+
+/* Higher than 1200 (desktop devices)
+====================================================================== */
+@media (min-width: 1200px) {
+    #updatingStatus {
+        margin-left: 14.422%;
+    }
+}
+/* Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #updatingStatus {
+        margin-left: 8.334%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #updatingStatus {
+        margin-left: 0;
+        position: fixed;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .header-nav {
         display: none;
@@ -77,14 +111,6 @@
 
     .animate-leave.animate-leave-active {
         -webkit-filter: blur(0px);
-    }
-
-    #updatingStatus {
-        position: fixed;
-        left: 20px;
-        top: 8px;
-        z-index: 9;
-        display: block;
     }
 
     /* Remove all padding from mobile views */
