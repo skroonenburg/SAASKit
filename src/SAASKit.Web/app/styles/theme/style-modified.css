@@ -1,4 +1,5 @@
-﻿@media only screen and (max-width: 767px) {
+﻿
+@media only screen and (max-width: 767px) {
     .header-nav {
         display: none;
     }
@@ -12,9 +13,40 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    .navbar-toggle {
+    #small-navbar-toggle {
         right: 0;
         top: -4px;
+    }
+    body #sidebar-left {
+        position: absolute;
+        left: -300px;
+        width:300px;
+        top: 0;
+        bottom: 0;
+        z-index: 9;
+        -webkit-transition: left .3s ease-in;
+    }
+
+    body.small-nav-expanded #sidebar-left  {
+        left: 0px;
+        -webkit-transition: left .3s ease-in;
+    }
+
+    #content-area {
+        margin-left: 0;
+        margin-right: 0;
+        -webkit-transition: all .3s ease-in;
+    }
+
+    body.small-nav-expanded #content-area {
+        
+        margin-left: 300px;
+        margin-right: -300px;
+        -webkit-transition: all .3s ease-in;
+    }
+
+    footer {
+        display: none;
     }
 }
 

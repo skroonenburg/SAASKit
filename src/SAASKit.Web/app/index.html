@@ -59,11 +59,12 @@
         <div id="mainheader" class="navbar" ng-class="{visible: showHeader}" >
             <div class="navbar-inner" ng-controller="HeaderController">
                 <div class="container">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".sidebar-nav.nav-collapse">
+                    <button id="small-navbar-toggle" class="navbar-toggle" type="button" >
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                   
                     <a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>		
                     <div class="row">
                         <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12" href="index.html"><span>locio</span></a>
@@ -127,7 +128,7 @@
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="col-lg-2 col-sm-1" ng-class="{visible: showNavBar}">
 				
-                    <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse" >
+                    <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse width" >
                         <ul class="nav nav-tabs nav-stacked main-menu" ng-controller="NavBarController">
                             <li ng-repeat="node in siteMapItems" ng-include="'tree_item_renderer.html'" ng-class="{active: node.active}"></li>
                         </ul>
@@ -137,7 +138,7 @@
                 
                  
 		        <!-- start: Content -->
-	            <div ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></div>		
+	            <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></div>		
                 <!-- end: Content -->
                 
             </div>
