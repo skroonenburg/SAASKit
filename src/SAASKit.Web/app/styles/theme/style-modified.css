@@ -24,7 +24,7 @@
     }
 
     body #sidebar-left {
-        transition: -webkit-transform .5s ease;
+        transition: -webkit-transform .25s ease;
         -webkit-transform: translate3d(-200px, 0, 0);
         position: absolute;
         left: 0px;
@@ -43,7 +43,7 @@
 
     #content-area {
         -webkit-transform: translate3d(0, 0, 0);
-        transition: -webkit-transform .5s ease;
+        transition: -webkit-transform .25s ease;
     }
 
     body.small-nav-expanded #content-area {
