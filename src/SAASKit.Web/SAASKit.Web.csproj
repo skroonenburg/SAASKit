@@ -165,6 +165,10 @@
     <Content Include="app\scripts\directives\directives.js" />
     <Content Include="app\scripts\main.js" />
     <Content Include="app\scripts\services\services.js" />
+    <Content Include="app\scripts\vendor\angular-route.js" />
+    <Content Include="app\scripts\vendor\angular-route.min.js" />
+    <Content Include="app\scripts\vendor\angular-touch.js" />
+    <Content Include="app\scripts\vendor\angular-touch.min.js" />
     <Content Include="app\styles\theme\style-modified.css" />
     <Content Include="app\styles\theme\bootstrap-theme.css" />
     <Content Include="app\styles\theme\bootstrap-theme.min.css" />

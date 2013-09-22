@@ -2,8 +2,10 @@
 require.config({
   baseUrl :'scripts',
   paths: {
-    angular: 'vendor/angular',
-    angularResource: 'vendor/angular-resource',
+    angular: 'vendor/angular.min',
+    angularResource: 'vendor/angular-resource.min',
+    angularTouch: 'vendor/angular-touch.min',
+    angularRoute: 'vendor/angular-route.min',
     jquery: 'vendor/jquery-1.10.2.min',
     domReady: 'vendor/domReady',
   },
@@ -15,13 +17,21 @@ require.config({
     angularResource: {
         deps: ['angular'],
         exports: '$resource'
+    },
+    angularTouch: {
+        deps: ['angular']
+    },
+    angularRoute: {
+        deps: ['angular']
     }
   }
 });
 
 require([
   'angular',
+  'angularTouch',
   'angularResource',
+  'angularRoute',
   'app',
   'domReady',
   'sitemap',
@@ -40,7 +50,7 @@ require([
   //'directives/navbaritem',
   'ui'
 ],
-  function (angular, angres, app, domReady, sitemap) {
+  function (angular, angres, angtouch, angroute, app, domReady, sitemap) {
       'use strict';
       
       function createRoutes($routeProvider, items) {
