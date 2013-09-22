@@ -7,9 +7,8 @@
   color: white;
   position: absolute;
   z-index: 1000;
-  top: 0px;
-  left: 5px;
-  padding: 8px 12px;
+  top: 8px;
+  left: 20px;
   font-size: 16px;
   text-shadow: none;
   text-decoration: none;
@@ -34,6 +33,7 @@
 @media only screen and (max-width: 767px) {
     #updatingStatus {
         margin-left: 0;
+        top: 4px;
         position: fixed;
     }
 }
