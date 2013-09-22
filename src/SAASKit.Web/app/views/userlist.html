@@ -22,7 +22,7 @@
 						    </tr>
 					    </thead>   
 				        <tbody>
-				            <tr ng-show="isUpdating" ng-hide="!isUpdating">
+				            <tr ng-show="isEmpty && isUpdating">
 				                <td colspan="4" >Loading...</td>
 				            </tr>
 				            <tr ng-repeat="user in users" ng-animate="{enter: 'fade-enter'}">

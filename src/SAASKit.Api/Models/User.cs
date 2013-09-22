@@ -15,6 +15,10 @@ namespace SAASKit.Api.Models
         public string lastName { get; set; }
         public bool isActive { get; set; }
         public bool isLocked { get; set; }
+        public string avatarImg { get; set; }
+
+        public string checkInLocation { get; set; }
+        public string checkInTime { get; set; }
 
         public void Deactivate()
         {

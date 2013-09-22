@@ -14,10 +14,11 @@ namespace SAASKit.Api.Controllers
         private const int UiPauseTime = 2000;
         public static List<User> users = new List<User>
             {
-                new User { id = 1, emailAddress = "john@smith.com", firstName = "John", lastName = "Smith", username = "john.smith" },
-                new User { id = 2, emailAddress = "james@jones.com", firstName = "James", lastName = "Jones", username = "james.jones" },
-                new User { id = 3, emailAddress = "steven@brown.com", firstName = "Steven", lastName = "Brown", username = "steven.brown" },
-                new User { id = 4, emailAddress = "bianca@cole.com", firstName = "Bianca", lastName = "Cole", username = "bianca.cole" }
+                new User { id = 1, emailAddress = "john@smith.com", firstName = "John", lastName = "Smith", username = "john.smith", avatarImg = "avatar", checkInTime = "1:32PM", checkInLocation = "Meeting Room #1" },
+                new User { id = 2, emailAddress = "james@jones.com", firstName = "James", lastName = "Jones", username = "james.jones", avatarImg = "avatar9", checkInTime = "2:16PM", checkInLocation = "Boardroom" },
+                new User { id = 3, emailAddress = "sally@brown.com", firstName = "Sally", lastName = "Brown", username = "sally.brown", avatarImg = "avatar4", checkInTime = "9:45AM", checkInLocation = "Meeting Room #2" },
+                new User { id = 4, emailAddress = "bianca@cole.com", firstName = "Bianca", lastName = "Cole", username = "bianca.cole", avatarImg = "avatar5",  checkInTime = "10:49PM", checkInLocation = "Cafe"},
+                new User { id = 5, emailAddress = "rebecca@north.com", firstName = "Rebecca", lastName = "North", username = "rebecca.north", avatarImg = "avatar6",  checkInTime = "1:37PM", checkInLocation = "Out of Office" }
             };
 
         // GET api/users

@@ -1,0 +1,17 @@
+﻿<div id="content" class="col-lg-10 col-sm-11">
+    <div class="row">		
+        <div class="col-lg-12" ng-controller="GroupListController">
+            <ul class="list">
+                <li ng-show="isEmpty && isUpdating" class="loading"><span class="name">Loading...</span></li>
+                <li ng-repeat="user in users" >
+                    <a href="#/status/{{user.id}}">
+                    <img class="avatar" src="/app/images/theme/{{user.avatarImg}}.jpg" alt="avatar">
+                    <span class="name" ng-bind="user.fullName"></span>
+                    <span class="time" ng-bind="user.checkInTime"></span>
+                    <div class="action"><a href="#/status/{{user.id}}"><i class="icon-chevron-right"></i></a></div>
+                    <div class="message" ng-bind="user.checkInLocation"></div></a>
+                </li>
+            </ul>
+        </div><!--/col-->
+    </div><!--/row-->
+</div>

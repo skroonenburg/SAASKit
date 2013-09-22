@@ -18,10 +18,22 @@ define([],
                       title: 'Groups',
                       link: '/groups',
                       controller: 'GroupListController',
-                      templateUrl: '/app/views/grouplist.html',
+                      templateUrl: '/app/views/locio/grouplist.html',
                       icon: 'icon-group',
                       showNavBar: true,
-                      showHeader: true
+                      showHeader: true,
+                      items: [
+                          {
+                              title: 'User Status',
+                              icon: 'icon-user',
+                              link: '/status/:userId',
+                              controller: 'UserStatusController',
+                              templateUrl: '/app/views/locio/userstatus.html',
+                              showNavBar: true,
+                              showHeader: true,
+                              visible: false
+                          }
+                      ]
                   },
                   {
                       title: 'Administration',

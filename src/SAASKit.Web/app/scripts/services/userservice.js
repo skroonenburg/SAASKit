@@ -1,11 +1,14 @@
 ﻿'use strict';
 
-define(['services/services', 'scripts/services/urlservice.js'],
+define(['services/services', 'scripts/services/urlservice.js', 'scripts/services/cacheservice.js'],
   function (services) {
-      services.factory('UserService', [ '$resource', '$http', 'UrlService', function ($resource, $http, UrlService) {
+      services.factory('UserService', [ '$resource', '$http', 'UrlService', 'CacheService', function ($resource, $http, UrlService, CacheService) {
           return {
               getUserResource: function () {
                   return $resource(UrlService.baseUrl + '/api/users/:id', { id: '@id' }, { save: { method: 'PUT' }});
+              },
+              getUsers: function() {
+                  return $http.get(UrlService.baseUrl + '/api/users');
               },
               save: function(id, data) {
                   return $http.post(UrlService.baseUrl + '/api/users/updateprofile/' + id, data);

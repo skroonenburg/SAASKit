@@ -29,11 +29,13 @@ require([
   'controllers/logincontroller',
   'controllers/headercontroller',
   'controllers/userlistcontroller',
-  'controllers/grouplistcontroller',
   'controllers/editusercontroller',
   'controllers/operationscontroller',
   'controllers/navbarcontroller',
   'directives/loadicon',
+  // locio specific
+  'controllers/locio/userstatuscontroller',
+  'controllers/locio/grouplistcontroller',
   //'directives/dropmenu',
   //'directives/navbaritem',
   'ui'

@@ -140,12 +140,15 @@
   <ItemGroup>
     <Content Include="app\images\theme\spinner.gif" />
     <Content Include="app\scripts\app.js" />
-    <Content Include="app\scripts\controllers\grouplistcontroller.js" />
+    <Content Include="app\scripts\controllers\locio\userstatuscontroller.js" />
+    <Content Include="app\scripts\controllers\locio\grouplistcontroller.js" />
     <Content Include="app\scripts\controllers\navbarcontroller.js" />
     <Content Include="app\scripts\controllers\operationscontroller.js" />
     <Content Include="app\scripts\controllers\editusercontroller.js" />
     <Content Include="app\scripts\controllers\userlistcontroller.js" />
     <Content Include="app\scripts\directives\dropmenu.js" />
+    <Content Include="app\scripts\services\cacheservice.js" />
+    <Content Include="app\scripts\services\localentitycacheservice.js" />
     <Content Include="app\scripts\services\groupservice.js" />
     <Content Include="app\scripts\sitemap.js" />
     <Content Include="app\scripts\services\urlservice.js" />
@@ -194,7 +197,8 @@
     <Content Include="app\styles\theme\uploadify.css" />
     <Content Include="app\scripts\vendor\domReady.js" />
     <Content Include="app\scripts\vendor\require.min.js" />
-    <Content Include="app\views\grouplist.html" />
+    <Content Include="app\views\locio\userstatus.html" />
+    <Content Include="app\views\locio\grouplist.html" />
     <Content Include="app\views\edituser.html" />
     <Content Include="app\views\userlist.html" />
     <Content Include="app\views\dashboard.html" />
