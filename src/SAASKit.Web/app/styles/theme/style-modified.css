@@ -33,7 +33,7 @@
 @media only screen and (max-width: 767px) {
     #updatingStatus {
         margin-left: 0;
-        top: 4px;
+        top: 2px;
         position: fixed;
     }
 }
