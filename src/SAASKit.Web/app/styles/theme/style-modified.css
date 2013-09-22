@@ -1,4 +1,6 @@
-﻿
+﻿#mainnav .row {
+    position: relative;
+}
 @media only screen and (max-width: 767px) {
     .header-nav {
         display: none;
@@ -25,6 +27,9 @@
         bottom: 0;
         z-index: 9;
         -webkit-transition: left .3s ease-in;
+    }
+    body .sidebar-nav.collapse {
+        display: block !important;
     }
 
     body.small-nav-expanded #sidebar-left  {

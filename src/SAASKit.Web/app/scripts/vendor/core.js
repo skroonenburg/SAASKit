@@ -120,14 +120,14 @@ define(['vendor/modernizr',
 
     });
 
-            /* Nav toggle */
+          /* 
             jQuery(document).ready(function($) {
                 $(document).on('click', '#small-navbar-toggle', function (e) {
                     $('.sidebar-nav').removeClass('collapse');
                     $('body').toggleClass('small-nav-expanded');
                     
                 });
-            });
+            });*/
 
     /* ---------- Main Menu Open/Close ---------- */
     jQuery(document).ready(function($){

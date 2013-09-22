@@ -92,6 +92,7 @@ require([
       
     app.run(function ($rootScope) {
         $rootScope.$on('$routeChangeSuccess', function (ev, data) {
+            $rootScope.smallNavExpanded = false;
             
             if (data.$$route && data.$$route.title) {
                 $rootScope.title = data.$$route.title;
