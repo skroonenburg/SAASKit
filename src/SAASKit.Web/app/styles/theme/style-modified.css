@@ -18,6 +18,9 @@
     #small-navbar-toggle {
         right: 0;
         top: -4px;
+        padding: 17px 25px 13px 25px;
+        margin-top: 0;
+        margin-right: 0;
     }
 
     body #sidebar-left {
