@@ -3,9 +3,9 @@
 define(['controllers/controllers', 'services/LocalEntityCacheService'],
   function (controllers) {
       
-      controllers.controller('GroupListController', ['$scope', 'UserService', 'LocalEntityCacheService',
+      controllers.controller('GroupListController', ['$scope', 'UserService', 'LocalEntityCacheService', '$location',
           
-        function ($scope, UserService, LocalEntityCacheService) {
+        function ($scope, UserService, LocalEntityCacheService, $location) {
 
             var locations = ["Meeting Room #1", "Boardroom", "Meeting Room #2", "Meeting Room #6", "Cafe", "Out of Office"];
             
@@ -28,6 +28,10 @@ define(['controllers/controllers', 'services/LocalEntityCacheService'],
                         $scope.users = data;
                     },
                     10);
+            };
+            
+            $scope.navigateToUser = function(user) {
+                $location.path("/status/" + user.id);
             };
             
             $scope.isEmpty = true;
