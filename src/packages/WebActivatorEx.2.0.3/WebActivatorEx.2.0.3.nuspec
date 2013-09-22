@@ -10,6 +10,9 @@
     <projectUrl>https://github.com/davidebbo/WebActivator</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A package that allows other packages to execute some startup code in web apps. This package should be used over the older WebActivator, which was not strong named.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
     <dependencies>
       <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
     </dependencies>
