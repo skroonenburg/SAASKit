@@ -69,7 +69,7 @@
     </script>
 </head>
 
-    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar }">
+    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar }" ng-swipe-left="smallNavExpanded = false" ng-swipe-right="smallNavExpanded = true">
         <!--<div butterbar>Loading...</div>-->
         
         
@@ -145,7 +145,7 @@
             <div class="row">
 				
                 <!-- start: Main Menu -->
-                <div id="sidebar-left" class="col-lg-2 col-sm-1" ng-class="{visible: showNavBar}">
+                <div id="sidebar-left" class="col-lg-2 col-sm-1" ng-class="{visible: showNavBar}" >
 				
                     <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse width">
                         <ul class="nav nav-tabs nav-stacked main-menu" ng-controller="NavBarController">
@@ -157,7 +157,7 @@
                 
                  
 		        <!-- start: Content -->
-	            <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></div>		
+	            <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>		
                 <!-- end: Content -->
                 
             </div>
