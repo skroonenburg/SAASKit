@@ -53,6 +53,27 @@
     footer {
         display: none;
     }
+
+    .animate-enter {
+        -webkit-filter: blur(0px);
+         -webkit-transition: 0.3s ease-in all;
+	    transition: all 0.3s ease-in 0.3s;
+    }
+ 
+    .animate-enter.animate-enter-active {
+        -webkit-filter: blur(0px);
+    }
+
+    .animate-leave {
+        -webkit-filter: blur(0px);
+        -webkit-transition: all 0.3s ease-out;
+	    transition: 0.3s ease-out all;
+    }
+
+    .animate-leave.animate-leave-active {
+        -webkit-filter: blur(0px);
+    }
+
 }
 
 
