@@ -138,3 +138,16 @@ ul.expanded {
     max-height: 1000px;    
 }
     */
+
+/* Fixed header */
+#mainnav {
+    margin-top: 40px;
+}
+
+#mainheader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+}
