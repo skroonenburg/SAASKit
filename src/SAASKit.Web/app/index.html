@@ -83,12 +83,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                   
-                    <loadicon is-updating="isUpdating" icon="''" id="updatingStatus"></loadicon>
 
                     <!--<a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>		-->
                     <div class="row">
-                        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12"><span>locio</span></a>
+                        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12"><span class="standard-title">locio</span><span ng-bind="title" class="mobile-title"></span></a>
                     </div>		
                     <!-- start: Header Menu -->
                     <div class="nav-no-collapse header-nav">
@@ -161,7 +159,14 @@
 		        <!-- start: Content -->
 	            <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>		
                 <!-- end: Content -->
-                
+
+                <!-- start: Mobile Footer -->
+                <div id="mobileFooter">
+                    <a class="refresh-btn" ng-click="refresh()" ng-show="!isUpdating"><i class="icon-refresh"></i></a>
+                    <a class="refresh-btn" ng-show="isUpdating"><loadicon is-updating="isUpdating" icon="''"></loadicon></a>
+                    
+                </div>
+                <!-- end: Mobile Footer -->
             </div>
         </div>
 

@@ -26,11 +26,13 @@ define(['controllers/controllers', 'services/userservice'],
                 
             };
 
+            
             $scope.users = [];
             $scope.isEmpty = true;
             $scope.$watch('users.length', function () {
                 $scope.isEmpty = !$scope.users || $scope.users.length == 0;
             });
+            $scope.$on('refresh', $scope.refresh);
             
             $scope.refresh();
         }]);      

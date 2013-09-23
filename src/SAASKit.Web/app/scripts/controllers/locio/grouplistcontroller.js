@@ -29,6 +29,8 @@ define(['controllers/controllers', 'services/LocalEntityCacheService'],
                     10);
             };
             
+            $scope.$on('refresh', $scope.refresh);
+            
             $scope.navigateToUser = function(user) {
                 $location.path("/status/" + user.id);
             };

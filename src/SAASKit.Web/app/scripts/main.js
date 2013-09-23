@@ -64,7 +64,7 @@ require([
               if (item.controller && item.templateUrl) {
                   $routeProvider.when(item.link,
                       {
-                          title: 'Dashboard',
+                          title: item.title,
                           showNavBar: item.showNavBar,
                           showHeader: item.showHeader,
                           controller: item.controller,
@@ -101,6 +101,10 @@ require([
        }]);
       
     app.run(function ($rootScope) {
+        $rootScope.refresh = function () {
+            $rootScope.$broadcast('refresh', {});
+        };
+        
         $rootScope.$on('$routeChangeSuccess', function (ev, data) {
             $rootScope.smallNavExpanded = false;
             
