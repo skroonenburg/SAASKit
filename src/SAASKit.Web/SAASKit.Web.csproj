@@ -145,6 +145,7 @@
     <Content Include="app\images\ico\startup-iphone-retina.png" />
     <Content Include="app\images\ico\startup-iphone.png" />
     <Content Include="app\images\ico\startup-iphone5-retina.png" />
+    <Content Include="app\images\theme\bg.png" />
     <Content Include="app\images\theme\spinner.gif" />
     <Content Include="app\scripts\app.js" />
     <Content Include="app\scripts\controllers\locio\userstatuscontroller.js" />
