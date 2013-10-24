@@ -91,6 +91,12 @@
 /* Turn off the mobile header for most sizes */
 .mobile-title { display: none; }
 
+/* Put the city-scape IOS7 type backgrounds in */
+a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
+.navbar-inner, .box .box-header, #mobileFooter { background: url('/app/images/theme/bg.png') !important; }
+.box .box-header h2 i, .box .box-header .box-icon, .standalone-btn { background: rgba(0, 0, 0, 0.25);}
+.box .box-header .box-icon i { border-left: none;}
+
 @media only screen and (max-width: 767px) {
     body {
         background: rgb(245, 245, 245) !important;
@@ -249,7 +255,6 @@
 
 
 ul.list {
-  overflow-y: scroll;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -259,9 +264,11 @@ ul.list li {
   padding: 12px 10px 15px 60px;
   border-bottom: 1px solid #e4e6eb;
     cursor: pointer;
+    background: #fff;
 }
 ul.list li:not(.loading):hover, ul.list li:not(.loading).ng-click-active {
-    background: #7BC8ED;
+    background-color: rgb(15, 127, 228);
+    color: white;
 }
 ul.list li img.avatar {
   top: 10px;
@@ -281,8 +288,11 @@ ul.list li .time {
   font-weight: bold;
   right: 10px;
   position: absolute;
-  color: #c7cbd5;
+  color: #666;
   font-size: 11px;
+}
+ul.list li:hover .time {
+    color: #eee;
 }
 ul.list li .action {
   font-weight: bold;
