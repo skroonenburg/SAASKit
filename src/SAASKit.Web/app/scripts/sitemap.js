@@ -12,7 +12,8 @@ define([],
                       templateUrl: '/app/views/dashboard.html',
                       icon: 'icon-bar-chart',
                       showNavBar: true,
-                      showHeader: true
+                      showHeader: true,
+                      isDefault: true
                   },
                   {
                       title: 'Groups',

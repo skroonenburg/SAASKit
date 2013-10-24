@@ -11,7 +11,7 @@ namespace SAASKit.Api.Controllers
 {
     public class UsersController : ApiController
     {
-        private const int UiPauseTime = 2000;
+        private const int UiPauseTime = 1000;
         public static List<User> users = new List<User>
             {
                 new User { id = 1, emailAddress = "john@smith.com", firstName = "John", lastName = "Smith", username = "john.smith", avatarImg = "avatar", checkInTime = "1:32PM", checkInLocation = "Meeting Room #1" },
@@ -24,7 +24,7 @@ namespace SAASKit.Api.Controllers
         // GET api/users
         public IEnumerable<User> Get()
         {
-            Thread.Sleep(UiPauseTime * 2);
+            Thread.Sleep(UiPauseTime);
             return users.OrderBy(x => x.firstName);
         }
 

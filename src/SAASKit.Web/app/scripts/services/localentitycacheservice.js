@@ -70,8 +70,7 @@ define(['services/services'],
                   }
                   
                   // now re-get the data
-                  // now re-get the data
-                  return getDataFunc().then(function (response) {
+                  return getDataFunc(entityId).then(function (response) {
                       // remember the entity object in the cache
                       updateEntityCache(entityName, entityId, response.data);
 

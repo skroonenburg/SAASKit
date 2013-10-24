@@ -3,8 +3,8 @@
 define(['controllers/controllers', 'sitemap'],
   function (controllers, sitemap) {
       
-      controllers.controller('NavBarController', ['$scope', '$location', '$rootScope', '$routeParams', '$route',
-      function ($scope, $location, $rootScope, $routeParams, $route) {
+      controllers.controller('NavBarController', ['$scope', '$location', '$rootScope', '$routeParams', '$route', 'SiteMapProvider',
+      function ($scope, $location, $rootScope, $routeParams, $route, SiteMapProvider) {
             $scope.siteMapItems = sitemap.items;
 
             $scope.getVisibleChildren = function (node) {
@@ -27,7 +27,7 @@ define(['controllers/controllers', 'sitemap'],
             
             $scope.isParentOfActive = function (node) {
                 var containsActiveNode = false;
-                ForEachNode(node.items, function (childNode) {
+                SiteMapProvider.forEachNode(node.items, function (childNode) {
                     if (childNode && childNode.active) {
                         containsActiveNode = true;
                     }
@@ -35,25 +35,16 @@ define(['controllers/controllers', 'sitemap'],
 
                 return containsActiveNode;
             };
-          
-            function ForEachNode(node, func) {
-                if (node instanceof Array) {
-                    node = { items: node };
-                } else {
-                    func(node);
-                }
 
-                if (node && node.items) {
-                    for (var i = 0; i < node.items.length; i++) {
-                        ForEachNode(node.items[i], func);
-                    }
-                }
-            }
-            
-            $rootScope.$on('$routeChangeSuccess', function (ev, data) {
-                ForEachNode($scope.siteMapItems, function (node) {
-                    node.active = data.$$route.link === node.link;
-                });
-            });
-        }]);
+          SiteMapProvider.onCurrentNodeChange(function(currentNode) {
+              $scope.currentNode = currentNode;
+          });
+
+          $scope.isActive = function (node) {
+              if (node.link === "/groups") {
+                  console.log("returning " + ($scope.currentNode && (node.link === $scope.currentNode.link)));
+              }
+              return $scope.currentNode && (node.link === $scope.currentNode.link);
+          };
+      }]);
   });

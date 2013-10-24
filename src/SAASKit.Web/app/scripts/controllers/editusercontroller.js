@@ -3,9 +3,9 @@
 define(['controllers/controllers', 'services/userservice'],
   function (controllers) {
       
-      controllers.controller('EditUserController', ['$scope', '$rootScope', 'UserService', '$routeParams', 
+      controllers.controller('EditUserController', ['$scope', '$rootScope', 'UserService', '$routeParams', 'LocalEntityCacheService',
           
-        function ($scope, $rootScope, UserService, $routeParams) {
+        function ($scope, $rootScope, UserService, $routeParams, LocalEntityCacheService) {
             
             function updateFullName() {
                 var fullName = '';
@@ -33,23 +33,22 @@ define(['controllers/controllers', 'services/userservice'],
                 };
             }
             
-            function updateComplete(data) {
-                loadUserToUI(data ? data : $scope.user);
-            }
+            function updateComplete(data, isUpdating) {
 
-            function updateError() {
-                $rootScope.isUpdating = false;
-            }
-            
-            function loadUserToUI(updatedUser) {
-                $scope.lastSavedUser = $.extend(true, {}, updatedUser);
-                $scope.user = updatedUser;
+                $rootScope.isUpdating = isUpdating ? true : false;
+                var user = data ? data : $scope.user;
+                
+                $scope.lastSavedUser = $.extend(true, {}, user);
+                $scope.user = user;
                 $scope.isChanged = false;
-                $rootScope.isUpdating = false;
 
                 $scope.$watch('user.firstName', updateFullName);
                 $scope.$watch('user.lastName', updateFullName);
                 $scope.$watch('user', updateChanged, true);
+            }
+
+            function updateError() {
+                $rootScope.isUpdating = false;
             }
 
             function updateChanged() {
@@ -71,9 +70,11 @@ define(['controllers/controllers', 'services/userservice'],
             $scope.isChanged = false;
             $scope.changeCount = 0;
             $rootScope.isUpdating = true;
-            $scope.user = UserService.getUserResource().get({ id: $scope.userId }, updateComplete);
             
-            // behaviours
+            // Load the user, and use an intermediatery cache if available
+            LocalEntityCacheService.get('user', $scope.userId, UserService.getUser, updateComplete);
+            
+            // define behaviours
             $scope.lock = startsOperation('userProfileLock', function () { return UserService.lock($scope.userId); });
             $scope.unlock = startsOperation('userProfileUnlock', function () { return UserService.unlock($scope.userId); });
             $scope.activate = startsOperation('userProfileActivate', function () { return UserService.activate($scope.userId); });

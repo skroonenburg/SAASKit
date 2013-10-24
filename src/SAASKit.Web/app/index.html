@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" >
+<html lang="en" ng-swipe-left="smallNavExpanded = false" ng-swipe-right="smallNavExpanded = true">
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
@@ -64,16 +64,13 @@
     <script type="text/ng-template" id="tree_item_renderer.html">
         <a ng-class="{dropmenu: hasVisibleChildren(node)}"  href="#{{node.link}}"><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
         <ul ng-show="hasVisibleChildren(node)" ng-style="{display:isParentOfActive(node) ? 'block' : 'none'}">
-            <li ng-repeat="node in getVisibleChildren(node)" ng-include="'tree_item_renderer.html'" ng-class="{active: node.active}"> 
+            <li ng-repeat="node in getVisibleChildren(node)" ng-include="'tree_item_renderer.html'" ng-class="{'active': isActive(node)}"> 
         </ul>
     </script>
 </head>
 
-    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar }" ng-swipe-left="smallNavExpanded = false" ng-swipe-right="smallNavExpanded = true">
-        <!--<div butterbar>Loading...</div>-->
+    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar }" >
         
-        
-				
         <!-- start: Header -->
         <div id="mainheader" class="navbar" ng-class="{visible: showHeader}" >
             <div class="navbar-inner" ng-controller="HeaderController">
@@ -83,7 +80,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+                    
+                    <a id="header-back-btn" ng-click="back()" ng-show="parentNode">
+                        <i class="icon-chevron-left"></i>
+                        {{parentNode.title}}
+                    </a>
+                    
                     <!--<a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>		-->
                     <div class="row">
                         <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12"><span class="standard-title">locio</span><span ng-bind="title" class="mobile-title"></span></a>
@@ -146,10 +148,9 @@
 				
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="col-lg-2 col-sm-1" ng-class="{visible: showNavBar}" >
-				
                     <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse width">
                         <ul class="nav nav-tabs nav-stacked main-menu" ng-controller="NavBarController">
-                            <li ng-repeat="node in siteMapItems" ng-include="'tree_item_renderer.html'" ng-class="{active: node.active}"></li>
+                            <li ng-repeat="node in siteMapItems" ng-include="'tree_item_renderer.html'" ng-class="{'active': isActive(node)}"></li>
                         </ul>
                     </div>
                 </div>
@@ -162,8 +163,8 @@
 
                 <!-- start: Mobile Footer -->
                 <div id="mobileFooter">
-                    <a class="refresh-btn" ng-click="refresh()" ng-show="!isUpdating"><i class="icon-refresh"></i></a>
-                    <a class="refresh-btn" ng-show="isUpdating"><loadicon is-updating="isUpdating" icon="''"></loadicon></a>
+                    <a class="standalone-btn" ng-click="refresh()" ng-show="!isUpdating"><i class="icon-refresh"></i></a>
+                    <a class="standalone-btn" ng-show="isUpdating"><loadicon is-updating="isUpdating" icon="''"></loadicon></a>
                     
                 </div>
                 <!-- end: Mobile Footer -->

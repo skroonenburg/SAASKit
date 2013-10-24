@@ -10,6 +10,9 @@ define(['services/services', 'scripts/services/urlservice.js', 'scripts/services
               getUsers: function() {
                   return $http.get(UrlService.baseUrl + '/api/users');
               },
+              getUser: function(id) {
+                  return $http.get(UrlService.baseUrl + '/api/users/' + id);
+              },
               save: function(id, data) {
                   return $http.post(UrlService.baseUrl + '/api/users/updateprofile/' + id, data);
               },

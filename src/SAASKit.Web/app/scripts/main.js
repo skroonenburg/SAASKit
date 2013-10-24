@@ -48,7 +48,8 @@ require([
   'controllers/locio/grouplistcontroller',
   //'directives/dropmenu',
   //'directives/navbaritem',
-  'ui'
+  'ui',
+  'services/sitemapprovider'
 ],
   function (angular, angres, angtouch, angroute, app, domReady, sitemap) {
       'use strict';
@@ -100,7 +101,7 @@ require([
            //authenticationService.ensureAuthenticated();
        }]);
       
-    app.run(function ($rootScope) {
+    app.run(function ($rootScope, SiteMapProvider) {
         $rootScope.refresh = function () {
             $rootScope.$broadcast('refresh', {});
         };
@@ -112,6 +113,7 @@ require([
                 $rootScope.title = data.$$route.title;
                 $rootScope.showNavBar = data.$$route.showNavBar;
                 $rootScope.showHeader = data.$$route.showHeader;
+                SiteMapProvider.updateCurrentRoute(data.$$route.link);
             }
         });
     });

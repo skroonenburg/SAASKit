@@ -157,6 +157,7 @@
     <Content Include="app\scripts\services\cacheservice.js" />
     <Content Include="app\scripts\services\localentitycacheservice.js" />
     <Content Include="app\scripts\services\groupservice.js" />
+    <Content Include="app\scripts\services\sitemapprovider.js" />
     <Content Include="app\scripts\sitemap.js" />
     <Content Include="app\scripts\services\urlservice.js" />
     <Content Include="app\scripts\services\userservice.js" />
