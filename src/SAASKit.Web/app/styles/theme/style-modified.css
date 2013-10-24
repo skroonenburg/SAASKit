@@ -250,6 +250,9 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
     #content {
         min-height: 0;
     }
+
+    /* Remove table margins in phone view */
+    table.table { margin-top: 0 !important; }
 }
 
 
