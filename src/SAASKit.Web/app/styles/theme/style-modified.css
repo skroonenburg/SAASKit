@@ -411,3 +411,7 @@ ul.expanded {
 .login-box {
     width: 260px;
 }
+
+.login-box h3 {
+    text-align: center;
+}
