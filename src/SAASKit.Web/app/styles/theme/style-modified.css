@@ -391,7 +391,7 @@ ul.expanded {
 }
 
 .header-footer #mainnav {
-    margin-top: 0px;
+    margin-top: 40px;
 }
 
 #login-title {
@@ -406,4 +406,8 @@ ul.expanded {
 /* Login text colour */
 .login-box input[type="text"], .login-box input[type="password"] {
     color: #888 !important; 
+}
+
+.login-box {
+    width: 260px;
 }
