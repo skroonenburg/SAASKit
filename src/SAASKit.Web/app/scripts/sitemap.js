@@ -6,21 +6,21 @@ define([],
               items:
               [
                   {
-                      title: 'Dashboard',
+                      title: 'Teams',
                       link: '/dashboard',
                       controller: 'DashboardController',
                       templateUrl: '/app/views/dashboard.html',
-                      icon: 'icon-bar-chart',
+                      icon: 'icon-group',
                       showNavBar: true,
                       showHeader: true,
                       isDefault: true
                   },
                   {
-                      title: 'Groups',
+                      title: 'People',
                       link: '/groups',
                       controller: 'GroupListController',
                       templateUrl: '/app/views/locio/grouplist.html',
-                      icon: 'icon-group',
+                      icon: 'icon-user',
                       showNavBar: true,
                       showHeader: true,
                       items: [
@@ -66,8 +66,8 @@ define([],
                   },
                   {
                       link: '/login',
-                      title: 'Login',
-                      icon: 'icon-signin',
+                      title: 'Sign Out',
+                      icon: 'icon-signout',
                       showNavBar: false,
                       showHeader: false,
                       controller: 'LoginController',
