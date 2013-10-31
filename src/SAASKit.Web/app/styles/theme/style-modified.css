@@ -22,10 +22,6 @@ body {
     /*background: rgba(0,0,0,0.3);*/
 }
 
-loadicon img {
-    margin-top: -10px;
-}
-
 /* Remove box shadows */
 .box {
     box-shadow: none;
@@ -289,6 +285,12 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
 
     /* Remove table margins in phone view */
     table.table { margin-top: 0 !important; }
+
+    /* Offset load icons on mobile */
+    loadicon img {
+        margin-top: -10px;
+    }
+
 }
 
 
