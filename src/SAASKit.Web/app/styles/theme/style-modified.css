@@ -294,7 +294,7 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
 
     /* Fixed header */
     .login-box {
-        margin-top: 20px;
+        margin-top: 40px;
         margin-bottom: 0px;
     }
 }
@@ -400,4 +400,10 @@ ul.expanded {
     text-align: center;
     color: #fff;
     font-weight: 200;
+    margin-top: 40px;
+}
+
+/* Login text colour */
+.login-box input[type="text"], .login-box input[type="password"] {
+    color: #888 !important; 
 }
