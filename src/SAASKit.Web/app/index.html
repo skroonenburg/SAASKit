@@ -163,8 +163,11 @@
 
                 <!-- start: Mobile Footer -->
                 <div id="mobileFooter">
-                    <a class="standalone-btn" ng-click="refresh()" ng-show="!isUpdating"><i class="icon-refresh"></i></a>
-                    <a class="standalone-btn" ng-show="isUpdating"><loadicon is-updating="isUpdating" icon="''"></loadicon></a>
+                    <div>
+                        <a class="standalone-btn" ng-click="refresh()" ng-show="!isUpdating"><i class="icon-refresh"></i></a>
+                        <a class="standalone-btn" ng-show="isUpdating"><loadicon is-updating="isUpdating" icon="''"></loadicon></a>    
+                    </div>
+                    
                     
                 </div>
                 <!-- end: Mobile Footer -->
