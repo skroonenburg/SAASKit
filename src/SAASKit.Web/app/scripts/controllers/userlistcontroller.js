@@ -20,6 +20,7 @@ define(['controllers/controllers', 'services/userservice'],
 
                         $scope.users = data;
                     },
+                    UserService.prepareUsers,
                     10);
                 
             };

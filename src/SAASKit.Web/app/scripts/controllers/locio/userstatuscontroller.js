@@ -18,11 +18,12 @@ define(['controllers/controllers', 'services/userservice'],
                     function(data, isCached) {
                         $rootScope.isUpdating = isCached;
                         
-                        $scope.user = UserService.prepareUser(data);
+                        $scope.user = data;
                         
                         $rootScope.title = $scope.user.fullName;
                         $scope.isEmpty = false;
                     },
+                    UserService.prepareUser,
                     10);
             };
 

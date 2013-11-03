@@ -72,7 +72,7 @@ define(['controllers/controllers', 'services/userservice'],
             $rootScope.isUpdating = true;
             
             // Load the user, and use an intermediatery cache if available
-            LocalEntityCacheService.get('user', $scope.userId, UserService.getUser, updateComplete);
+            LocalEntityCacheService.get('user', $scope.userId, UserService.getUser, UserService.prepareUser, updateComplete);
             
             // define behaviours
             $scope.lock = startsOperation('userProfileLock', function () { return UserService.lock($scope.userId); });

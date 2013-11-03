@@ -22,8 +22,9 @@ define(['controllers/controllers', 'services/LocalEntityCacheService', 'services
                         function(data, isCached) {
                             $rootScope.isUpdating = isCached;
 
-                            $scope.users = UserService.prepareUsers(data);
+                            $scope.users = data;
                         },
+                        UserService.prepareUsers,
                         10,
                         isTeam ? 'team/' + $routeParams.teamId + '/users' : 'all');
             };

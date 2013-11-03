@@ -20,6 +20,7 @@ define(['controllers/controllers', 'services/LocalEntityCacheService', , 'servic
 
                         $scope.teams = data;
                     },
+                    null,
                     10);
             };
             

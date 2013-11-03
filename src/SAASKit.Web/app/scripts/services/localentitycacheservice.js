@@ -44,7 +44,7 @@ define(['services/services'],
                    
           return {
               // get a list from the entity cache
-              getList: function(entityName, getDataFunc, returnDataFunc, expirationSeconds, uniqueQueryIdentifier) {
+              getList: function(entityName, getDataFunc, returnDataFunc, postProcessingFunc, expirationSeconds, uniqueQueryIdentifier) {
                   var key = uniqueQueryIdentifier ? uniqueQueryIdentifier : getDataFunc.toString();
                   
                   // Do we already have an entry for this query?
@@ -55,14 +55,17 @@ define(['services/services'],
                   
                   // now re-get the data
                   return getDataFunc().then(function (response) {
+                      // post process the results before cache
+                      var data = postProcessingFunc ? postProcessingFunc(response.data) : response.data;
+                      
                       // remember the query result ids and the entity objects in the cache
-                      updateQueryCache(entityName, key, response.data);
+                      updateQueryCache(entityName, key, data);
                       
                       // return the updated data
-                      returnDataFunc(response.data, false, false);
+                      returnDataFunc(data, false, false);
                   });
               },
-              get: function(entityName, entityId, getDataFunc, returnDataFunc, expirationSeconds) {
+              get: function (entityName, entityId, getDataFunc, returnDataFunc, postProcessingFunc, expirationSeconds) {
                   // Do we already have an entry for this entity?
                   if (entityCache[entityName] && entityCache[entityName][entityId]) {
                       // first return data from cache
@@ -71,11 +74,15 @@ define(['services/services'],
                   
                   // now re-get the data
                   return getDataFunc(entityId).then(function (response) {
+                      
+                      // post process the results before cache
+                      var data = postProcessingFunc ? postProcessingFunc(response.data) : response.data;
+                      
                       // remember the entity object in the cache
-                      updateEntityCache(entityName, entityId, response.data);
+                      updateEntityCache(entityName, entityId, data);
 
                       // return the updated data
-                      returnDataFunc(response.data, false, false);
+                      returnDataFunc(data, false, false);
                   });
               }
           };
