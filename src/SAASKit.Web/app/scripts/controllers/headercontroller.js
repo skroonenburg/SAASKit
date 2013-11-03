@@ -3,9 +3,9 @@
 define(['controllers/controllers', 'services/authenticationservice'],
   function (controllers) {
 
-      controllers.controller('HeaderController', ['$scope', 'AuthenticationService', '$rootScope', 'SiteMapProvider', '$location',
+      controllers.controller('HeaderController', ['$scope', 'AuthenticationService', '$rootScope', 'SiteMapProvider', '$location', '$window',
 
-        function ($scope, AuthenticationService, $rootScope, SiteMapProvider, $location) {
+        function ($scope, AuthenticationService, $rootScope, SiteMapProvider, $location, $window) {
 
             $scope.user = AuthenticationService.getUserDetails();
 
@@ -17,8 +17,9 @@ define(['controllers/controllers', 'services/authenticationservice'],
                 $rootScope.smallNavExpanded = !$rootScope.smallNavExpanded;
             };
 
-            $scope.back = function() {
-                $location.path($scope.parentNode.link);
+            $scope.back = function () {
+                $window.history.back();
+                //$location.path($scope.parentNode.link);
             };
             
             $scope.$watch('user.firstName', updateFullName);

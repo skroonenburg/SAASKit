@@ -22,7 +22,8 @@ define([],
                               templateUrl: '/app/views/locio/peoplelist.html',
                               icon: 'icon-user',
                               showNavBar: true,
-                              showHeader: true
+                              showHeader: true,
+                              visible: false
                           }
                       ]
                   },

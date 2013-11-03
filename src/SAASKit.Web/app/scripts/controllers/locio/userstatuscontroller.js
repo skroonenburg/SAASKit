@@ -2,20 +2,33 @@
 
 define(['controllers/controllers', 'services/userservice'],
   function (controllers) {
-      
-      controllers.controller('UserStatusController', ['$scope', 'UserService',
+
+      controllers.controller('UserStatusController', ['$scope', 'UserService', '$routeParams', '$rootScope', 'LocalEntityCacheService',
           
-        function ($scope, UserService) {
+        function ($scope, UserService, $routeParams, $rootScope, LocalEntityCacheService) {
+            $scope.isEmpty = true;
+            $scope.user = { checkInLocation: 'Loading...' };
             
-            $scope.user = {
-                id: 1,
-                emailAddress: "john@smith.com",
-                firstName: "John",
-                lastName: "Smith",
-                fullName: "John Smith",
-                username: "john.smith",
-                avatarImg: "avatar"
+            $scope.refresh = function () {
+                $rootScope.isUpdating = true;
+                
+                
+                LocalEntityCacheService.get('user', $routeParams.userId, UserService.getUser,
+                    // update data
+                    function(data, isCached) {
+                        $rootScope.isUpdating = isCached;
+
+                        $scope.user = data;
+                        $scope.user.fullName = $scope.user.firstName + ' ' + $scope.user.lastName;
+                        $rootScope.title = $scope.user.fullName;
+                        $scope.isEmpty = false;
+                    },
+                    10);
             };
+
+            $scope.$on('refresh', $scope.refresh);
+
+            $scope.refresh();
         }]);      
   });
 

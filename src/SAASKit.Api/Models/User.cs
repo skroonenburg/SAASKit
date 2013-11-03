@@ -19,6 +19,7 @@ namespace SAASKit.Api.Models
 
         public string checkInLocation { get; set; }
         public string checkInTime { get; set; }
+        public bool isMale { get; set; }
 
         public void Deactivate()
         {

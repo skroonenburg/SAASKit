@@ -68,10 +68,63 @@ footer {
 
 html, body { height: 100%; }
 
-#mainnav, #mainnav .row, #content, #content-area {
+#mainnav, #mainnav > .row, #content, #content-area {
     min-height: 100%;
+    height: 100%;
 }
 
+/* User Profile Screen */
+.user-profile {
+    background: #fff !important;
+}
+
+.user-profile .avatar {
+    width: 100px;
+    border-radius: 50px;
+    float: right;
+    display: block;
+}
+
+
+.status-actions .dashboard-list {
+    margin-left: 20px;
+    padding: 0;
+}
+
+    .status-actions .dashboard-list .icon-align-right {
+        float: right;
+        margin-right: 10px;
+    }
+
+    .status-actions .dashboard-list .action {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        
+        display: block;
+    }
+
+    .status-actions .dashboard-list .action:hover, .status-actions .dashboard-list .action.ng-click-active {
+        background-color: rgb(15, 127, 228);
+        color: white;
+    }
+
+.user-profile .row {
+    margin-top: 20px;
+}
+
+.status-description {
+    padding-left: 10px;
+    
+}
+
+.status-header {
+    font-size: 18px;
+}
+
+.checkInLocation {
+    font-weight: bold;
+    font-size: 16px;   
+}
 
 
 #content {
@@ -312,6 +365,10 @@ ul.list li {
     cursor: pointer;
     background: #fff;
 }
+ul.list.no-thumbnails li {
+    padding-left: 25px;
+}
+
 ul.list li:not(.loading):hover, ul.list li:not(.loading).ng-click-active {
     background-color: rgb(15, 127, 228);
     color: white;

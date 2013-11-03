@@ -61,12 +61,14 @@
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 	<!-- end: Favicon and Touch Icons -->	
 		
-    <script type="text/ng-template" id="tree_item_renderer.html">
+	<script type="text/ng-template" id="tree_item_renderer.html">
         <a ng-class="{dropmenu: hasVisibleChildren(node)}" ng-click="clickNode(node)" href=""><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
         <ul ng-show="hasVisibleChildren(node)" ng-style="{display:isParentOfActive(node) ? 'block' : 'none'}">
             <li ng-repeat="node in getVisibleChildren(node)" ng-include="'tree_item_renderer.html'" ng-class="{'active': isActive(node)}"> 
         </ul>
     </script>
+    
+
 </head>
 
     <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar, 'header-footer' : showHeader }" >
@@ -155,10 +157,9 @@
                     </div>
                 </div>
                 <!-- end: Main Menu -->
-                
                  
-		        <!-- start: Content -->
-	            <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>		
+                <!-- start: Content -->
+                <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>
                 <!-- end: Content -->
 
                 <!-- start: Mobile Footer -->

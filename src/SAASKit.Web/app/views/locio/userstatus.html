@@ -1,4 +1,27 @@
-﻿<div id="content" class="col-lg-10 col-sm-11" >
-    hello {{user.fullName}}!
+﻿<div id="content" class="col-lg-10 col-sm-11 user-profile" >
+    
+    <div class="row">
+        <div class="col-xs-5">
+            <img class="avatar" src="http://api.saaskit.local{{user.avatarImg}}" alt="avatar">
+        </div>
+        <div class="col-xs-7">
+            <ul class="dashboard-list">
+                <li><i class="icon-pushpin blue"></i> <span class="status-description checkInLocation" ng-bind="user.checkInLocation">Loading...</span></li>
+                <li><i class="icon-time green"></i> <span class="status-description" ng-bind="user.checkInTime">...</span></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+    <div class="row status-actions" ng-hide="isEmpty">
+        <div class="col-lg-12">
+            <ul class="dashboard-list">
+                <li><span class="status-header">Alert Me</span></li>
+                <li class=""><a href="" class="status-description action"><i class="icon-bell icon-align-right"></i> When {{user.isMale ? 'he': 'she'}} leaves</a></li>
+                <li class="action"><i class="icon-bell icon-align-right"></i> <span class="status-description">When {{user.isMale ? 'he': 'she'}} arrives at...</span></li>
+            
+            </ul>
+            </div>
+    </div>
     
 </div>
