@@ -2,7 +2,14 @@
 
 define(['services/services', 'scripts/services/urlservice.js', 'scripts/services/cacheservice.js'],
   function (services) {
-      services.factory('UserService', [ '$resource', '$http', 'UrlService', 'CacheService', function ($resource, $http, UrlService, CacheService) {
+      services.factory('UserService', ['$resource', '$http', 'UrlService', 'CacheService', function ($resource, $http, UrlService, CacheService) {
+          function prepareUser(user) {
+              user.fullName = user.firstName + " " + user.lastName;
+              user.avatarImg = UrlService.baseUrl + user.avatarImg;
+
+              return user;
+          }
+          
           return {
               getUserResource: function () {
                   return $resource(UrlService.baseUrl + '/api/users/:id', { id: '@id' }, { save: { method: 'PUT' }});
@@ -30,6 +37,14 @@ define(['services/services', 'scripts/services/urlservice.js', 'scripts/services
               },
               lock: function(id) {
                   return $http.post(UrlService.baseUrl + '/api/users/lock/' + id, {});
+              },
+              prepareUser: prepareUser,
+              prepareUsers: function(users) {
+                  for (var key in users) {
+                      prepareUser(users[key]);
+                  }
+
+                  return users;
               }
           };
       }]);

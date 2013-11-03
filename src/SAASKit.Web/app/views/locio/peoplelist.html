@@ -14,7 +14,7 @@
                         <li ng-show="isEmpty && isUpdating" class="loading"><span class="name">Loading...</span></li>
                         <li ng-repeat="user in users" ng-click="navigateToUser(user)">
                     
-                            <img class="avatar" src="http://api.saaskit.local{{user.avatarImg}}" alt="avatar">
+                            <img class="avatar" src="{{user.avatarImg}}" alt="avatar">
                             <span class="name" ng-bind="user.fullName"></span>
                             <span class="time" ng-bind="user.checkInTime"></span>
                             <div class="action"><a href="#/status/{{user.id}}"><i class="icon-chevron-right"></i></a></div>

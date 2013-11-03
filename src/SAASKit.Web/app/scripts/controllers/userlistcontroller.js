@@ -16,9 +16,7 @@ define(['controllers/controllers', 'services/userservice'],
                     function (data, isCached) {
                         $rootScope.isUpdating = isCached;
 
-                        for (var key in data) {
-                            data[key].fullName = data[key].firstName + " " + data[key].lastName;
-                        }
+                        UserService.prepareUsers(data);
 
                         $scope.users = data;
                     },

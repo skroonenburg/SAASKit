@@ -18,12 +18,6 @@ define(['controllers/controllers', 'services/LocalEntityCacheService', , 'servic
                     function(data, isCached) {
                         $rootScope.isUpdating = isCached;
 
-                        /*for (var key in data) {
-                            data[key].fullName = data[key].firstName + " " + data[key].lastName;
-                            data[key].checkInTime = "1:32PM";
-                            data[key].checkInLocation = locations[key % locations.length];
-                        }*/
-
                         $scope.teams = data;
                     },
                     10);

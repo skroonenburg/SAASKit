@@ -14,16 +14,6 @@ define(['controllers/controllers', 'services/LocalEntityCacheService', 'services
             $scope.refresh = function () {
                 
                 $rootScope.isUpdating = true;
-                
-                function processData(data) {
-                    for (var key in data) {
-                        data[key].fullName = data[key].firstName + " " + data[key].lastName;
-                        data[key].checkInTime = "1:32PM";
-                        data[key].checkInLocation = locations[key % locations.length];
-                    }
-
-                    return data;
-                }
 
                 var dataAccessFunc = isTeam ? function () { return UserService.getUsersInTeam($routeParams.teamId); } : UserService.getUsers;
                 
@@ -32,7 +22,7 @@ define(['controllers/controllers', 'services/LocalEntityCacheService', 'services
                         function(data, isCached) {
                             $rootScope.isUpdating = isCached;
 
-                            $scope.users = processData(data);
+                            $scope.users = UserService.prepareUsers(data);
                         },
                         10,
                         isTeam ? 'team/' + $routeParams.teamId + '/users' : 'all');

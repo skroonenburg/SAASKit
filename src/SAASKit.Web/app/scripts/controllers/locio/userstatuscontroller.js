@@ -17,9 +17,9 @@ define(['controllers/controllers', 'services/userservice'],
                     // update data
                     function(data, isCached) {
                         $rootScope.isUpdating = isCached;
-
-                        $scope.user = data;
-                        $scope.user.fullName = $scope.user.firstName + ' ' + $scope.user.lastName;
+                        
+                        $scope.user = UserService.prepareUser(data);
+                        
                         $rootScope.title = $scope.user.fullName;
                         $scope.isEmpty = false;
                     },
