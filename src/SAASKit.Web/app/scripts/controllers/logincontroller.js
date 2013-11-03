@@ -14,7 +14,7 @@ define(['controllers/controllers', 'services/authenticationservice'],
 
                 if (AuthenticationService.attemptLogin($scope.username, $scope.password)) {
                     // login succeeded
-                    $location.path('dashboard');
+                    $location.path('teams');
                 } else {
                     // login failed
                     $scope.isError = true;

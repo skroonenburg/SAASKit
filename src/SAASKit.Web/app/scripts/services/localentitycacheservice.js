@@ -44,8 +44,8 @@ define(['services/services'],
                    
           return {
               // get a list from the entity cache
-              getList: function(entityName, getDataFunc, returnDataFunc, expirationSeconds) {
-                  var key = getDataFunc.toString();
+              getList: function(entityName, getDataFunc, returnDataFunc, expirationSeconds, uniqueQueryIdentifier) {
+                  var key = uniqueQueryIdentifier ? uniqueQueryIdentifier : getDataFunc.toString();
                   
                   // Do we already have an entry for this query?
                   if (queryCache[key]) {

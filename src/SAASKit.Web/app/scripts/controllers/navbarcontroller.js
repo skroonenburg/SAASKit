@@ -25,6 +25,14 @@ define(['controllers/controllers', 'sitemap'],
                 return $scope.getVisibleChildren(node).length > 0;
             };
             
+            $scope.clickNode = function (node) {
+                
+                if (node.link) {
+                    $location.path(node.link);
+                }
+                return $scope.getVisibleChildren(node).length > 0;
+            };
+          
             $scope.isParentOfActive = function (node) {
                 var containsActiveNode = false;
                 SiteMapProvider.forEachNode(node.items, function (childNode) {

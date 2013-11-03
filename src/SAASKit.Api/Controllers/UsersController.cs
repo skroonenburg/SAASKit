@@ -6,39 +6,33 @@ using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 using SAASKit.Api.Models;
+using SAASKit.Api.Services;
 
 namespace SAASKit.Api.Controllers
 {
     public class UsersController : ApiController
     {
         private const int UiPauseTime = 1000;
-        public static List<User> users = new List<User>
-            {
-                new User { id = 1, emailAddress = "john@smith.com", firstName = "John", lastName = "Smith", username = "john.smith", avatarImg = "avatar", checkInTime = "1:32PM", checkInLocation = "Meeting Room #1" },
-                new User { id = 2, emailAddress = "james@jones.com", firstName = "James", lastName = "Jones", username = "james.jones", avatarImg = "avatar9", checkInTime = "2:16PM", checkInLocation = "Boardroom" },
-                new User { id = 3, emailAddress = "sally@brown.com", firstName = "Sally", lastName = "Brown", username = "sally.brown", avatarImg = "avatar4", checkInTime = "9:45AM", checkInLocation = "Meeting Room #2" },
-                new User { id = 4, emailAddress = "bianca@cole.com", firstName = "Bianca", lastName = "Cole", username = "bianca.cole", avatarImg = "avatar5",  checkInTime = "10:49PM", checkInLocation = "Cafe"},
-                new User { id = 5, emailAddress = "rebecca@north.com", firstName = "Rebecca", lastName = "North", username = "rebecca.north", avatarImg = "avatar6",  checkInTime = "1:37PM", checkInLocation = "Out of Office" }
-            };
+        private readonly UserRepository _userRepository = new UserRepository();
 
         // GET api/users
         public IEnumerable<User> Get()
         {
             Thread.Sleep(UiPauseTime);
-            return users.OrderBy(x => x.firstName);
+            return _userRepository.GetAll().OrderBy(x => x.firstName);
         }
 
         // GET api/users/5
         public User Get(int id)
         {
             Thread.Sleep(UiPauseTime);
-            return users.FirstOrDefault(x => x.id == id);
+            return _userRepository.Get(id);
         }
 
         // POST api/users
         public void PostNewUser([FromBody]User value)
         {
-            users.Add(value);
+            _userRepository.Add(value);
         }
 
         // POST api/users/5/updateprofile
@@ -47,14 +41,13 @@ namespace SAASKit.Api.Controllers
         public void UpdateProfile(int id, [FromBody]User value)
         {
             Thread.Sleep(UiPauseTime);
-            Delete(id);
-            users.Add(value);
+            _userRepository.Save(value);
         }
 
         // DELETE api/users/5
         public void Delete(int id)
         {
-            users.Remove(users.FirstOrDefault(x => x.id == id));
+            _userRepository.Remove(id);
         }
 
         // POST api/users/5/deactivate
@@ -64,7 +57,7 @@ namespace SAASKit.Api.Controllers
         {
             Thread.Sleep(UiPauseTime);
 
-            var user = users.FirstOrDefault(x => x.id == id);
+            var user = _userRepository.Get(id);
             user.Deactivate();
             return user;
         }
@@ -76,8 +69,9 @@ namespace SAASKit.Api.Controllers
         {
             Thread.Sleep(UiPauseTime);
 
-            var user = users.FirstOrDefault(x => x.id == id);
+            var user = _userRepository.Get(id);
             user.Activate();
+
             return user;
         }
 
@@ -88,7 +82,7 @@ namespace SAASKit.Api.Controllers
         {
             Thread.Sleep(UiPauseTime*5);
 
-            var user = users.FirstOrDefault(x => x.id == id);
+            var user = _userRepository.Get(id);
             user.Unlock();
 
             return user;
@@ -101,7 +95,7 @@ namespace SAASKit.Api.Controllers
         {
             Thread.Sleep(UiPauseTime * 5);
 
-            var user = users.FirstOrDefault(x => x.id == id);
+            var user = _userRepository.Get(id);
             user.Lock();
 
             return user;

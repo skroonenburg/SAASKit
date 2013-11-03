@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-define(['controllers/controllers', 'services/groupservice'],
+define(['controllers/controllers', 'services/userservice'],
   function (controllers) {
       
       controllers.controller('UserStatusController', ['$scope', 'UserService',

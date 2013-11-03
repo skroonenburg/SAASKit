@@ -45,7 +45,8 @@ require([
   'directives/loadicon',
   // locio specific
   'controllers/locio/userstatuscontroller',
-  'controllers/locio/grouplistcontroller',
+  'controllers/locio/peoplelistcontroller',
+  'controllers/locio/teamlistcontroller',
   //'directives/dropmenu',
   //'directives/navbaritem',
   'ui',

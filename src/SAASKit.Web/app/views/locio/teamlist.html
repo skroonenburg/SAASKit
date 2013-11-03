@@ -1,10 +1,10 @@
 ﻿<div id="content" class="col-lg-10 col-sm-11">
     <div class="row">		
-        <div class="col-lg-12" ng-controller="GroupListController">
+        <div class="col-lg-12" ng-controller="TeamListController">
             <div class="box hide-mobile">
 			    <div class="box-header" data-original-title>
 			        <h2><loadicon is-updating="isUpdating" icon="'icon-user'" />
-			            <span class="break"></span><span id="pageTitle">User List</span></h2>
+			            <span class="break"></span><span id="pageTitle">Teams</span></h2>
 				    <div class="box-icon">
 					    <a class="btn-refresh" ng-click="refresh()"><i class="icon-refresh"></i></a>
 				    </div>
@@ -12,13 +12,13 @@
                 <div class="box-content box-list">
                     <ul class="list">
                         <li ng-show="isEmpty && isUpdating" class="loading"><span class="name">Loading...</span></li>
-                        <li ng-repeat="user in users" ng-click="navigateToUser(user)">
+                        <li ng-repeat="team in teams" ng-click="navigateToTeam(team)">
                     
-                            <img class="avatar" src="/app/images/theme/{{user.avatarImg}}.jpg" alt="avatar">
-                            <span class="name" ng-bind="user.fullName"></span>
-                            <span class="time" ng-bind="user.checkInTime"></span>
-                            <div class="action"><a href="#/status/{{user.id}}"><i class="icon-chevron-right"></i></a></div>
-                            <div class="message" ng-bind="user.checkInLocation"></div>
+                            <!--<img class="avatar" srsc="http://api.saaskit.local{{team.avatarImg}}" alt="avatar">-->
+                            <span class="name" ng-bind="team.name"></span>
+                            <span class="time">4 people nearby</span>
+                            <div class="action"><a href="#/status/{{team.id}}"><i class="icon-chevron-right"></i></a></div>
+                            <div class="message">{{team.Users.length}} people </div>
                         </li>
                     </ul>
                 </div>

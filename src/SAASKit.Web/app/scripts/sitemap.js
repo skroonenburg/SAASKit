@@ -7,19 +7,30 @@ define([],
               [
                   {
                       title: 'Teams',
-                      link: '/dashboard',
-                      controller: 'DashboardController',
-                      templateUrl: '/app/views/dashboard.html',
+                      link: '/teams',
+                      controller: 'TeamListController',
+                      templateUrl: '/app/views/locio/teamlist.html',
                       icon: 'icon-group',
                       showNavBar: true,
                       showHeader: true,
-                      isDefault: true
+                      isDefault: true,
+                      items: [
+                          {
+                              title: 'Team Members',
+                              link: '/teams/:teamId/:teamName',
+                              controller: 'PeopleListController',
+                              templateUrl: '/app/views/locio/peoplelist.html',
+                              icon: 'icon-user',
+                              showNavBar: true,
+                              showHeader: true
+                          }
+                      ]
                   },
                   {
                       title: 'People',
-                      link: '/groups',
-                      controller: 'GroupListController',
-                      templateUrl: '/app/views/locio/grouplist.html',
+                      link: '/people',
+                      controller: 'PeopleListController',
+                      templateUrl: '/app/views/locio/peoplelist.html',
                       icon: 'icon-user',
                       showNavBar: true,
                       showHeader: true,

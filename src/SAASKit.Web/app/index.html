@@ -62,7 +62,7 @@
 	<!-- end: Favicon and Touch Icons -->	
 		
     <script type="text/ng-template" id="tree_item_renderer.html">
-        <a ng-class="{dropmenu: hasVisibleChildren(node)}"  href="#{{node.link}}"><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
+        <a ng-class="{dropmenu: hasVisibleChildren(node)}" ng-click="clickNode(node)" href=""><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
         <ul ng-show="hasVisibleChildren(node)" ng-style="{display:isParentOfActive(node) ? 'block' : 'none'}">
             <li ng-repeat="node in getVisibleChildren(node)" ng-include="'tree_item_renderer.html'" ng-class="{'active': isActive(node)}"> 
         </ul>

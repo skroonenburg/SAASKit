@@ -13,6 +13,9 @@ define(['services/services', 'scripts/services/urlservice.js', 'scripts/services
               getUser: function(id) {
                   return $http.get(UrlService.baseUrl + '/api/users/' + id);
               },
+              getUsersInTeam: function (id) {
+                  return $http.get(UrlService.baseUrl + '/api/teams/users/' + id);
+              },
               save: function(id, data) {
                   return $http.post(UrlService.baseUrl + '/api/users/updateprofile/' + id, data);
               },

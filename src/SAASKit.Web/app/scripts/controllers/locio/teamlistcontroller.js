@@ -1,11 +1,11 @@
 ﻿'use strict';
 
-define(['controllers/controllers', 'services/LocalEntityCacheService'],
+define(['controllers/controllers', 'services/LocalEntityCacheService', , 'services/teamservice'],
   function (controllers) {
       
-      controllers.controller('GroupListController', ['$scope', 'UserService', 'LocalEntityCacheService', '$location', '$rootScope',
+      controllers.controller('TeamListController', ['$scope', 'TeamService', 'LocalEntityCacheService', '$location', '$rootScope',
           
-        function ($scope, UserService, LocalEntityCacheService, $location, $rootScope) {
+        function ($scope, TeamService, LocalEntityCacheService, $location, $rootScope) {
 
             var locations = ["Meeting Room #1", "Boardroom", "Meeting Room #2", "Meeting Room #6", "Cafe", "Out of Office"];
             
@@ -13,31 +13,31 @@ define(['controllers/controllers', 'services/LocalEntityCacheService'],
                 
                 $rootScope.isUpdating = true;
                 
-                LocalEntityCacheService.getList('user', UserService.getUsers,
+                LocalEntityCacheService.getList('team', TeamService.getTeams,
                     // update data
                     function(data, isCached) {
                         $rootScope.isUpdating = isCached;
 
-                        for (var key in data) {
+                        /*for (var key in data) {
                             data[key].fullName = data[key].firstName + " " + data[key].lastName;
                             data[key].checkInTime = "1:32PM";
                             data[key].checkInLocation = locations[key % locations.length];
-                        }
+                        }*/
 
-                        $scope.users = data;
+                        $scope.teams = data;
                     },
                     10);
             };
             
             $scope.$on('refresh', $scope.refresh);
             
-            $scope.navigateToUser = function(user) {
-                $location.path("/status/" + user.id);
+            $scope.navigateToTeam = function(team) {
+                $location.path("/teams/" + team.id + '/' + team.name);
             };
             
             $scope.isEmpty = true;
-            $scope.$watch('users.length', function () {
-                $scope.isEmpty = !$scope.users || $scope.users.length == 0;
+            $scope.$watch('teams.length', function () {
+                $scope.isEmpty = !$scope.teams || $scope.teams.length == 0;
             });
             
             $scope.refresh();

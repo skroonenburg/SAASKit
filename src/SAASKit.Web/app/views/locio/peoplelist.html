@@ -1,0 +1,28 @@
+﻿<div id="content" class="col-lg-10 col-sm-11">
+    <div class="row">		
+        <div class="col-lg-12" ng-controller="PeopleListController">
+            <div class="box hide-mobile">
+			    <div class="box-header" data-original-title>
+			        <h2><loadicon is-updating="isUpdating" icon="'icon-user'" />
+			            <span class="break"></span><span id="pageTitle" ng-bind="title"></span></h2>
+				    <div class="box-icon">
+					    <a class="btn-refresh" ng-click="refresh()"><i class="icon-refresh"></i></a>
+				    </div>
+			    </div>
+                <div class="box-content box-list">
+                    <ul class="list">
+                        <li ng-show="isEmpty && isUpdating" class="loading"><span class="name">Loading...</span></li>
+                        <li ng-repeat="user in users" ng-click="navigateToUser(user)">
+                    
+                            <img class="avatar" src="http://api.saaskit.local{{user.avatarImg}}" alt="avatar">
+                            <span class="name" ng-bind="user.fullName"></span>
+                            <span class="time" ng-bind="user.checkInTime"></span>
+                            <div class="action"><a href="#/status/{{user.id}}"><i class="icon-chevron-right"></i></a></div>
+                            <div class="message" ng-bind="user.checkInLocation"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--/col-->
+    </div><!--/row-->
+</div>

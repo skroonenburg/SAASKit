@@ -33,7 +33,7 @@ define(['controllers/controllers', 'services/authenticationservice'],
                 }
                 
                 // if there's no parent, use the default root node
-                parentNode = parentNode ? parentNode : SiteMapProvider.getDefault();
+                //parentNode = parentNode ? parentNode : SiteMapProvider.getDefault();
                 
                 // node cannot be it's own parent
                 // TODO: Replace with object equals?
