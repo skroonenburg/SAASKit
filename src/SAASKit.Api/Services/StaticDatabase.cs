@@ -22,14 +22,14 @@ namespace SAASKit.Api.Services
                     {
                         new User { id = 6, emailAddress = "julie@green.com", firstName = "Julie", lastName = "Green", username = "julie.green", avatarImg = "/image/8.jpg", checkInTime = "9:45AM", checkInLocation = "Meeting Room #2" },
                         new User { id = 7, emailAddress = "chin@hu.com", firstName = "Chin", lastName = "Hu", username = "chin.hu", avatarImg = "/image/10.jpg",  checkInTime = "10:49PM", checkInLocation = "Cafe"},
-                        new User { id = 8, emailAddress = "hendry@lyle.com", firstName = "Henry", lastName = "Lyle", username = "henry.lyle", avatarImg = "/image/6.jpg",  checkInTime = "1:37PM", checkInLocation = "Out of Office" }
+                        new User { id = 8, emailAddress = "hendry@lyle.com", firstName = "Henry", lastName = "Lyle", username = "henry.lyle", avatarImg = "/image/6.jpg",  checkInTime = "1:37PM", checkInLocation = "Out of Office", isMale = true  }
                     }
                 },
                 new Team { id = 3, name = "Sales", avatarImg = "/image/team/marketing.png", Users = new List<User>()
                     {
                         new User { id = 9, emailAddress = "sam@french.com", firstName = "Sam", lastName = "French", username = "sam.french", avatarImg = "/image/4.jpg", checkInTime = "1:32PM", checkInLocation = "Meeting Room #1", isMale = true  },
                         new User { id = 10, emailAddress = "sean@bowles.com", firstName = "Sean", lastName = "Bowles", username = "sean.bowles", avatarImg = "/image/5.jpg", checkInTime = "2:16PM", checkInLocation = "Boardroom", isMale = true  },
-                        new User { id = 11, emailAddress = "raj@amit.com", firstName = "Raj", lastName = "Amit", username = "raj.amit", avatarImg = "/image/9.jpg", checkInTime = "9:45AM", checkInLocation = "Meeting Room #2" },
+                        new User { id = 11, emailAddress = "raj@amit.com", firstName = "Raj", lastName = "Amit", username = "raj.amit", avatarImg = "/image/9.jpg", checkInTime = "9:45AM", checkInLocation = "Meeting Room #2", isMale = true  },
                     }
                 }
                 

@@ -88,7 +88,7 @@ require([
                       showNavBar: false,
                       showHeader: false,
                       controller: 'LoginController',
-                      templateUrl: '/app/views/login.html'
+                      templateUrl: 'views/login.html'
                   });
           }
     ]);

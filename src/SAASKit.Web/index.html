@@ -61,6 +61,8 @@
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 	<!-- end: Favicon and Touch Icons -->	
 		
+	<script type="text/javascript" src="cordova.js"></script>
+
 	<script type="text/ng-template" id="tree_item_renderer.html">
         <a ng-class="{dropmenu: hasVisibleChildren(node)}" ng-click="clickNode(node)" href=""><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
         <ul ng-show="hasVisibleChildren(node)" ng-style="{display:isParentOfActive(node) ? 'block' : 'none'}">

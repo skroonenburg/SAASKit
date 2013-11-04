@@ -4,7 +4,7 @@ define(['directives/directives'], function (directives) {
     directives.directive('loadicon', ['$rootScope', function($rootScope) {
         return {
             restrict: 'AE', //ng-class="{\'icon-edit\': !isUpdating}
-            template: '<i class="icon-white {{iconClass}}"><img src="/app/images/theme/spinner.gif"  style="display: {{displayImage}}" /></i>',
+            template: '<i class="icon-white {{iconClass}}"><img src="images/theme/spinner.gif"  style="display: {{displayImage}}" /></i>',
             scope: {
                 isUpdating: '=',
                 icon:'='

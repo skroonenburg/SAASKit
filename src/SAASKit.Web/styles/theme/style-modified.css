@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url('/app/images/theme/bg.png') 0px -40px !important
+    background: url('../../images/theme/bg.png') 0px -40px !important
 }
 
 #sidebar-left { background: rgba(0, 0, 0, 0.3) !important; }
@@ -15,7 +15,7 @@ body {
     left: 0;
     right: 0;
     height: 34px;
-    background: url('/app/images/theme/bg.png') 0px -0px !important
+    background: url('../../images/theme/bg.png') 0px -0px !important
 }
 
 #mobileFooter div {
@@ -176,7 +176,7 @@ html, body { height: 100%; }
 
 /* Put the city-scape IOS7 type backgrounds in */
 a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
-.navbar-inner, .box .box-header { background: url('/app/images/theme/bg.png') !important; }
+.navbar-inner, .box .box-header { background: url('../../images/theme/bg.png') !important; }
 .box .box-header h2 i, .box .box-header .box-icon, .standalone-btn { background: rgba(0, 0, 0, 0.25);}
 .box .box-header .box-icon i { border-left: none;}
 

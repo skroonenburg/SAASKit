@@ -292,11 +292,15 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="image\1.jpg" />
+    <Content Include="image\10.jpg" />
+    <Content Include="image\11.jpg" />
     <Content Include="image\2.jpg" />
     <Content Include="image\3.jpg" />
     <Content Include="image\4.jpg" />
     <Content Include="image\5.jpg" />
     <Content Include="image\6.jpg" />
+    <Content Include="image\7.jpg" />
+    <Content Include="image\8.jpg" />
     <Content Include="image\9.jpg" />
     <Content Include="image\team\marketing.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
