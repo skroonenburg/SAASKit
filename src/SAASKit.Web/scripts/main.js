@@ -6,6 +6,7 @@ require.config({
     angularResource: 'vendor/angular-resource.min',
     angularTouch: 'vendor/angular-touch.min',
     angularRoute: 'vendor/angular-route.min',
+    angularAnimate: 'vendor/angular-animate.min',
     jquery: 'vendor/jquery-1.10.2.min',
     domReady: 'vendor/domReady',
   },
@@ -23,6 +24,9 @@ require.config({
     },
     angularRoute: {
         deps: ['angular']
+    },
+    angularAnimate: {
+        deps: ['angular']
     }
   }
 });
@@ -32,6 +36,7 @@ require([
   'angularTouch',
   'angularResource',
   'angularRoute',
+  'angularAnimate',
   'app',
   'domReady',
   'sitemap',
@@ -52,7 +57,7 @@ require([
   'ui',
   'services/sitemapprovider'
 ],
-  function (angular, angres, angtouch, angroute, app, domReady, sitemap) {
+  function (angular, angres, angtouch, angroute, anganimate, app, domReady, sitemap) {
       'use strict';
       
       function createRoutes($routeProvider, items) {
@@ -102,13 +107,45 @@ require([
            //authenticationService.ensureAuthenticated();
        }]);
       
-    app.run(function ($rootScope, SiteMapProvider) {
+    app.run(function ($rootScope, SiteMapProvider, $window) {
+        $rootScope.isLoaded = false;
+        
         $rootScope.refresh = function () {
             $rootScope.$broadcast('refresh', {});
         };
         
+        /*$rootScope.$on("$locationChangeStart", function (event, nextLocation, currentLocation) {
+            // Logic goes here
+            if ($rootScope.isLoaded && nextLocation && nextLocation.lastIndexOf('#/login') >= 0) {
+                $rootScope.isTransitioningBack = true;
+            }
+        });*/
+        
+        $rootScope.back = function() {
+            var currentNode = SiteMapProvider.getCurrent();
+            // does the current node have a parent?
+            var parent = SiteMapProvider.getParent(currentNode);
+            if (parent) {
+                // Record that we're transitioning backwards, for any animations
+                $rootScope.isTransitioningBack = true;
+                $window.history.back();
+            } else {
+                $rootScope.smallNavExpanded = true;
+            }
+        };
+        
         $rootScope.$on('$routeChangeSuccess', function (ev, data) {
             $rootScope.smallNavExpanded = false;
+            if (!$rootScope.isLoaded) {
+                setTimeout(function () { $rootScope.isLoaded = true; }, 1000);
+            }
+            
+            setTimeout(function () {
+                // turn off the backward transition
+                // this setTimeut is a giant hack until i can find and
+                // event that is fired once the animation is complete
+                $rootScope.isTransitioningBack = false;
+            }, 500);
             
             if (data.$$route && data.$$route.title) {
                 $rootScope.title = data.$$route.title;

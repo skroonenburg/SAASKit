@@ -17,10 +17,10 @@ define(['controllers/controllers', 'services/authenticationservice'],
                 $rootScope.smallNavExpanded = !$rootScope.smallNavExpanded;
             };
 
-            $scope.back = function () {
+            /*$scope.back = function () {
                 $window.history.back();
                 //$location.path($scope.parentNode.link);
-            };
+            };*/
             
             $scope.$watch('user.firstName', updateFullName);
             $scope.$watch('user.lastName', updateFullName);

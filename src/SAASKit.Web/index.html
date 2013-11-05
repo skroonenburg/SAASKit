@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-swipe-left="smallNavExpanded = false" ng-swipe-right="smallNavExpanded = true">
+<html lang="en" ng-swipe-left="smallNavExpanded = false" ng-swipe-right="back()">
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
@@ -62,6 +62,20 @@
 	<!-- end: Favicon and Touch Icons -->	
 		
 	<script type="text/javascript" src="cordova.js"></script>
+    
+    <!-- fix for ios7 header bar in phonegap -->
+	<script type="text/javascript">
+	    function onDeviceReady() {
+	        if (window && window.device && window.device.version && parseFloat(window.device.version) >= 7.0) {
+	            document.body.className += ' iOS7';
+	        }
+	        if (navigator && navigator.splashscreen) {
+	            navigator.splashscreen.hide();
+	        }
+	    }
+
+	    document.addEventListener('deviceready', onDeviceReady, false);
+	</script>
 
 	<script type="text/ng-template" id="tree_item_renderer.html">
         <a ng-class="{dropmenu: hasVisibleChildren(node)}" ng-click="clickNode(node)" href=""><i class="{{node.icon}}"></i><span class="hidden-sm"> {{node.title}}</span> <span class="label">{{items.length}}</span></a>
@@ -73,10 +87,10 @@
 
 </head>
 
-    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar, 'header-footer' : showHeader }" >
+    <body ng-class="{'small-nav-expanded' : smallNavExpanded && showNavBar, 'header-footer' : showHeader, 'transition-back' : isTransitioningBack, 'transition-animation': isLoaded }" >
         
         <!-- start: Header -->
-        <div id="mainheader" class="navbar" ng-class="{visible: showHeader}" >
+        <div id="mainheader" class="navbar" ng-class="{ visible: showHeader }" >
             <div class="navbar-inner" ng-controller="HeaderController">
                 <div class="container">
                     <button id="small-navbar-toggle" class="navbar-toggle" type="button" ng-click="showSmallNavBar()" ng-show="!parentNode">
@@ -161,7 +175,7 @@
                 <!-- end: Main Menu -->
                  
                 <!-- start: Content -->
-                <div id="content-area" ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>
+                <div ng-view class="content-area" ng-class="{'transition-back': isTransitioningBack}"></div>
                 <!-- end: Content -->
 
                 <!-- start: Mobile Footer -->

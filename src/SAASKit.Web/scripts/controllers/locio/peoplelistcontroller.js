@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-define(['controllers/controllers', 'services/LocalEntityCacheService', 'services/userservice'],
+define(['controllers/controllers', 'services/localentitycacheservice', 'services/userservice'],
   function (controllers) {
       
       controllers.controller('PeopleListController', ['$scope', 'UserService', 'LocalEntityCacheService', '$location', '$rootScope', '$routeParams',

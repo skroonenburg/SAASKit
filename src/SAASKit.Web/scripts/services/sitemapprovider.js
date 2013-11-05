@@ -47,6 +47,9 @@ define(['services/services', 'sitemap'],
                  }
               },
               forEachNode: forEachNode,
+              getCurrent: function() {
+                  return currentNode;
+              },
               getParent: function (node) {
                   var foundParent = null;
                   

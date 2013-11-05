@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-define(['controllers/controllers', 'services/LocalEntityCacheService', , 'services/teamservice'],
+define(['controllers/controllers', 'services/localentitycacheservice', , 'services/teamservice'],
   function (controllers) {
       
       controllers.controller('TeamListController', ['$scope', 'TeamService', 'LocalEntityCacheService', '$location', '$rootScope',

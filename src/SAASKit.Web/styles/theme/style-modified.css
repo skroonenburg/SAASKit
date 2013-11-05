@@ -182,10 +182,12 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
 
 /* fix padding & make the list entries larger */
 
-.main-menu li a:hover {
+.main-menu li a:hover, .main-menu li.active > a {
     background: rgba(0, 0, 0, 0.4) !important;
     
 }
+
+
 @media only screen and (max-width: 767px) {
     body {
         /*background: rgb(245, 245, 245) !important;*/
@@ -212,12 +214,10 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
     }
 
     body #sidebar-left {
-        transition: -webkit-transform .25s ease;
-        -webkit-transform: translate3d(-200px, 0, 0);
         position: fixed;
-        left: 0px;
+        left: -200px;
         width:200px;
-        top: 40px;
+        top: 0px;
         bottom: 0;
         z-index: 9;
     }
@@ -225,21 +225,20 @@ a.navbar-brand, a.navbar-brand:hover { background: none;border: none; }
         display: block !important;
     }
 
-    body.small-nav-expanded #sidebar-left  {
+    /*body.small-nav-expanded #sidebar-left  {
         -webkit-transform: translate3d(0, 0, 0);
-    }
+    }*/
 
-    #content-area {
+    
+    #mainnav > .row {
         -webkit-transform: translate3d(0, 0, 0);
         transition: -webkit-transform .25s ease;
     }
 
-    body.small-nav-expanded #content-area {
-        
-        
+    body.small-nav-expanded #mainnav > .row  {   
         -webkit-transform: translate3d(200px, 0, 0);
     }
-
+        
     footer {
         display: none;
     }
@@ -470,4 +469,95 @@ ul.expanded {
 
 .login-box h3 {
     text-align: center;
+}
+
+
+/* iOS7 fixes */
+
+body.iOS7 .navbar-inner {
+    padding-top: 15px !important;
+}
+
+body.iOS7 #small-navbar-toggle {
+    padding-top: 32px !important;
+}
+
+body.iOS7.header-footer #mainnav {
+    margin-top: 55px !important;
+}
+
+body.iOS7 #sidebar-left {
+    top: 0px;
+}
+
+body.iOS7 #header-back-btn {
+    top: 15px;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+
+    .content-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 100%;
+        height: 100%;
+    }
+
+    .transition-animation .content-area.ng-enter, .transition-animation  .content-area.ng-leave, #mainheader  {
+        -o-transition: -o-transform .5s ease;
+        -moz-transition: -moz-transform .5s ease;
+        -webkit-transition: -webkit-transform .5s ease;
+    }
+
+    .transition-animation .content-area.ng-enter, .transition-animation #mainheader.ng-hide-remove {
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        -o-transform: translate3d(100%, 0, 0);
+    }
+
+        .transition-animation .content-area.ng-enter.ng-enter-active, .transition-animation  #mainheader.ng-hide-remove.ng-hide-remove-active {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+        }
+
+    .transition-animation.transition-back .content-area.ng-enter {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        -moz-transform: translate3d(-100%, 0, 0);
+        -o-transform: translate3d(-100%, 0, 0);
+    }
+
+        .transition-animation.transition-back .content-area.ng-enter.ng-enter-active {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+        }
+        
+    .transition-animation .content-area.ng-leave, .transition-animation #mainheader.ng-hide-add {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+    }
+
+        .transition-animation .content-area.ng-leave.ng-leave-active, .transition-animation #mainheader.ng-hide-add.ng-hide-add-active {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            -moz-transform: translate3d(-100%, 0, 0);
+            -o-transform: translate3d(-100%, 0, 0);
+        }
+
+    .transition-animation.transition-back .content-area.ng-leave {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+    }
+
+        .transition-animation.transition-back .content-area.ng-leave.ng-leave-active {
+            -webkit-transform: translate3d(100%, 0, 0);
+            -moz-transform: translate3d(100%, 0, 0);
+            -o-transform: translate3d(100%, 0, 0);
+        }
 }

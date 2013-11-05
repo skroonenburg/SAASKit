@@ -10,26 +10,27 @@
     display: block !important;
 }
 
-.animate-enter {
+/*
+.ng-enter {
     -webkit-filter: blur(6px);
      -webkit-transition: 0.3s ease-in all;
 	transition: all 0.3s ease-in 0.3s;
 }
  
-.animate-enter.animate-enter-active {
+.ng-enter.ng-enter-active {
     -webkit-filter: blur(0px);
 }
 
-.animate-leave {
+.ng-leave {
     -webkit-filter: blur(0px);
     -webkit-transition: all 0.3s ease-out;
 	transition: 0.3s ease-out all;
 }
 
-.animate-leave.animate-leave-active {
+.ng-leave.ng-leave-active {
     -webkit-filter: blur(6px);
-}
-
+}*/
+    
 .input-updating {
     -webkit-filter: blur(2px);
     opacity: 0.7;
