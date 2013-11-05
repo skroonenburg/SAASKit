@@ -146,6 +146,8 @@
     <Content Include="images\ico\startup-iphone.png" />
     <Content Include="images\ico\startup-iphone5-retina.png" />
     <Content Include="images\theme\bg.png" />
+    <Content Include="images\theme\floorplan.png" />
+    <Content Include="images\theme\pin.png" />
     <Content Include="images\theme\spinner.gif" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\locio\teamlistcontroller.js" />
