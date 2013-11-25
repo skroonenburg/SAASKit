@@ -9,17 +9,20 @@ define(['controllers/controllers', 'services/userservice'],
             $scope.isEmpty = true;
             $scope.user = { checkInLocation: 'Loading...' };
             
+            $scope.isYou = $routeParams.userId ? false : true;
+            $scope.userId = !$scope.isYou ? $routeParams.userId : 7;
+            
             $scope.refresh = function () {
                 $rootScope.isUpdating = true;
                 
                 
-                LocalEntityCacheService.get('user', $routeParams.userId, UserService.getUser,
+                LocalEntityCacheService.get('user', $scope.userId, UserService.getUser,
                     // update data
                     function(data, isCached) {
                         $rootScope.isUpdating = isCached;
                         
                         $scope.user = data;
-                        
+                        $scope.isOut = $scope.user.checkInLocation.indexOf('Out of Office') >= 0;
                         $rootScope.title = $scope.user.fullName;
                         $scope.isEmpty = false;
                     },

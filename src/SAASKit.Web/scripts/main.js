@@ -52,6 +52,8 @@ require([
   'controllers/locio/userstatuscontroller',
   'controllers/locio/peoplelistcontroller',
   'controllers/locio/teamlistcontroller',
+  'controllers/locio/roomlistcontroller',
+  'controllers/locio/mapviewcontroller',
   //'directives/dropmenu',
   //'directives/navbaritem',
   'ui',

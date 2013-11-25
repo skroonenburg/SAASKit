@@ -150,7 +150,9 @@
     <Content Include="images\theme\pin.png" />
     <Content Include="images\theme\spinner.gif" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\controllers\locio\roomlistcontroller.js" />
     <Content Include="scripts\controllers\locio\teamlistcontroller.js" />
+    <Content Include="scripts\controllers\locio\mapviewcontroller.js" />
     <Content Include="scripts\controllers\locio\userstatuscontroller.js" />
     <Content Include="scripts\controllers\locio\peoplelistcontroller.js" />
     <Content Include="scripts\controllers\navbarcontroller.js" />
@@ -213,7 +215,9 @@
     <Content Include="styles\theme\uploadify.css" />
     <Content Include="scripts\vendor\domReady.js" />
     <Content Include="scripts\vendor\require.min.js" />
+    <Content Include="views\locio\roomlist.html" />
     <Content Include="views\locio\teamlist.html" />
+    <Content Include="views\locio\mapview.html" />
     <Content Include="views\locio\userstatus.html" />
     <Content Include="views\locio\peoplelist.html" />
     <Content Include="views\edituser.html" />

@@ -1,0 +1,42 @@
+﻿<div id="content" class="col-lg-10 col-sm-11">
+    <div class="row">		
+        <div class="col-lg-12" ng-controller="TeamListController">
+            <div class="box hide-mobile">
+			    <div class="box-header" data-original-title>
+			        <h2><loadicon is-updating="isUpdating" icon="'icon-user'" />
+			            <span class="break"></span><span id="pageTitle">Teams</span></h2>
+				    <div class="box-icon">
+					    <a class="btn-refresh" ng-click="refresh()"><i class="icon-refresh"></i></a>
+				    </div>
+			    </div>
+                <div class="box-content box-list">
+                    <ul class="list no-thumbnails">
+                        <li style="text-align: center; ">
+                            <span style="display: block; padding: 20px;"><img src="images/theme/pin.png" style="zoom: 35%; margin-bottom: 20px;"><br />Find closest available room</span>
+                        </li>
+                        <li>
+                            <span class="name">Meeting Room #1</span>
+                            <span class="time">Book now</span>
+                            <div class="action"><a href="#/status/{{team.id}}"><i class="icon-chevron-right"></i></a></div>
+                            <div class="message">Free until 3:30pm </div>
+                        </li>
+                        <li>
+                            <span class="name">Meeting Room #2</span>
+                            <span class="time">Used by Julie Green</span>
+                            <div class="action"><a href="#/status/{{team.id}}"></a></div>
+                            <div class="message">Occupied until 2:45pm </div>
+                        </li>
+                        <li>
+                            <span class="name">Boardroom</span>
+                            <span class="time">Book now </span>
+                            <div class="action"><a href="#/status/{{team.id}}"><i class="icon-chevron-right"></i></a></div>
+                            <div class="message">Free until 9am tomorrow</div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div><!--/col-->
+    </div><!--/row-->
+</div>

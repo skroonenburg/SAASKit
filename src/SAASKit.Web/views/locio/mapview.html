@@ -1,0 +1,13 @@
+﻿<div id="content" class="col-lg-10 col-sm-11 user-profile" >
+    <div class="row map" ng-hide="isEmpty">
+        <div class="col-lg-12">
+            <div class="map-scroll-view">
+                <img class="map" src="images/theme/floorplan.png" />
+
+                <a href="" class="pin-container" ng-hide="user.isOut" ng-repeat="user in users" style="top: {{user.locationY}}px; left: {{user.locationX}}px;">
+                    <img src="{{user.avatarImg}}">
+                    <span ng-bind="user.fullName"></span>
+                </a>
+            </div>
+        </div>
+    </div>

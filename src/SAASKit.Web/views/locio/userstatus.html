@@ -13,24 +13,39 @@
         </div>
     </div>
     
-    <div class="row status-actions" ng-hide="isEmpty">
+    <div class="row status-actions" ng-hide="isEmpty || isYou">
         <div class="col-lg-12">
             <ul class="dashboard-list">
                 <li><span class="status-header">Alert Me</span></li>
-                <li class=""><a href="" class="status-description action"><i class="icon-bell icon-align-right"></i> When {{user.isMale ? 'he': 'she'}} leaves</a></li>
-                <li class="action"><i class="icon-bell icon-align-right"></i> <span class="status-description">When {{user.isMale ? 'he': 'she'}} arrives at...</span></li>
-            
+                <li class="" ng-hide="isOut"><a href="" class="status-description action"><i class="icon-bell icon-align-right"></i> When {{user.isMale ? 'he': 'she'}} leaves</a></li>
+                <li class="" ng-hide="isOut"><a href="" class="status-description action"><i class="icon-bell icon-align-right"></i> When {{user.isMale ? 'he': 'she'}} arrives at...</a></li>
+                <li class="" ng-hide="!isOut"><a href="" class="status-description action"><i class="icon-bell icon-align-right"></i> When {{user.isMale ? 'he': 'she'}} arrives at work</a></li>
             </ul>
-            </div>
+        </div>
     </div>
     
-    <div class="row map">
+    <div class="row status-actions" ng-hide="!isYou">
+        <div class="col-lg-12">
+            <ul class="dashboard-list">
+                <li><span class="status-header">I'd like to:</span></li>
+                <li class=""><a href="" class="status-description action"><i class=" icon-signout icon-align-right"></i> Go into stealth mode!</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="row map" ng-hide="isEmpty || user.isOut">
         <div class="col-lg-12">
             <div class="scroll-view">
-                <img class="map" src="images/theme/floorplan.png"/>
-                <img class="pin" src="images/theme/pin.png"
-                    style="top: {{user.locationY}}px; left: {{user.locationX}}px;"
-                    />
+                <div style="position: relative; margin-left:{{0-user.locationX+130}}px; margin-top:{{0-user.locationY+70}}px;">
+                    <img class="map" src="images/theme/floorplan.png" />
+                    <!--<img class="pin" src="images/theme/pin.png"
+                         style="top: {{user.locationY}}px; left: {{user.locationX}}px;" />-->
+
+                    <a href="" class="pin-container" ng-hide="user.isOut" style="top: {{user.locationY}}px; left: {{user.locationX}}px;">
+                        <img src="{{user.avatarImg}}">
+                        <img src="images/theme/pin.png" style="zoom: 70%; margin-top: -120px; margin-left:-55px;"></a>
+                </div>
             </div>
+        </div>
     </div>
-</div>

@@ -6,7 +6,7 @@ define(['services/services', 'scripts/services/urlservice.js', 'scripts/services
           function prepareUser(user) {
               user.fullName = user.firstName + " " + user.lastName;
               user.avatarImg = UrlService.baseUrl + user.avatarImg;
-
+              user.isOut = user.checkInLocation.indexOf('Out of Office') >= 0;
               return user;
           }
           

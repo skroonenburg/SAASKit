@@ -6,6 +6,16 @@ define([],
               items:
               [
                   {
+                      title: 'You',
+                      link: '/status/you',
+                      controller: 'UserStatusController',
+                      templateUrl: 'views/locio/userstatus.html',
+                      icon: 'icon-map-marker',
+                      showNavBar: true,
+                      showHeader: true,
+                      isDefault: false
+                  },
+                  {
                       title: 'Teams',
                       link: '/teams',
                       controller: 'TeamListController',
@@ -49,7 +59,25 @@ define([],
                       ]
                   },
                   {
-                      title: 'Administration',
+                      title: 'Map View',
+                      link: '/map',
+                      controller: 'MapViewController',
+                      templateUrl: 'views/locio/mapview.html',
+                      icon: 'icon-hospital',
+                      showNavBar: true,
+                      showHeader: true
+                  },
+                  {
+                      title: 'Rooms',
+                      link: '/rooms',
+                      controller: 'RoomListController',
+                      templateUrl: 'views/locio/roomlist.html',
+                      icon: 'icon-th',
+                      showNavBar: true,
+                      showHeader: true
+                  },
+                  {
+                      title: 'Settings',
                       icon: 'icon-cog',
                       showNavBar: true,
                       showHeader: true,
