@@ -10,7 +10,7 @@ define(['controllers/controllers', 'services/userservice'],
             $scope.user = { checkInLocation: 'Loading...' };
             
             $scope.isYou = $routeParams.userId ? false : true;
-            $scope.userId = !$scope.isYou ? $routeParams.userId : 7;
+            $scope.userId = !$scope.isYou ? $routeParams.userId : 1;
             
             $scope.refresh = function () {
                 $rootScope.isUpdating = true;
